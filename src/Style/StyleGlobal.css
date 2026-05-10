@@ -1,0 +1,149 @@
+:root {
+  --unifor-dark-blue: #0A1D37;
+  --unifor-card-blue: #183863;
+  --unifor-light-blue: #ADD8E6;
+  --unifor-white: #FFFFFF;
+  --status-pending-bg: #FEF3C7;
+  --status-pending-text: #92400E;
+  --status-approved-bg: #D1FAE5;
+  --status-approved-text: #065F46;
+}
+
+.main-header {
+  background-color: var(--unifor-dark-blue);
+  color: var(--unifor-white);
+  width: 100%;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 20px;
+}
+
+/* Navegação Superior */
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.brand-logo {
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+}
+
+/* Corpo do Header */
+.header-body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.header-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.header-subtitle {
+  color: var(--unifor-light-blue);
+  font-size: 14px;
+  margin-top: 4px;
+  white-space: pre-line;
+}
+
+/* Status Chips */
+.status-badge-container {
+  margin-top: 16px;
+}
+
+.status-badge {
+  padding: 4px 16px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.status-pending { background: var(--status-pending-bg); color: var(--status-pending-text); }
+.status-approved { background: var(--status-approved-bg); color: var(--status-approved-text); }
+
+/* Grid de Estatísticas */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.stat-card {
+  background-color: var(--unifor-card-blue);
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(173, 216, 230, 0.1);
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.stat-icon-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--unifor-light-blue);
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.stat-count {
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--unifor-light-blue);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .header-body { flex-direction: column; align-items: flex-start; }
+  .stats-grid { max-width: 100%; }
+}
