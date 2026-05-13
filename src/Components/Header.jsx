@@ -1,72 +1,51 @@
 import React from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import { ArrowLeft, Sun, Moon, BarChart3, FileText, Clock, AlertTriangle } from 'lucide-react';
-import '../style/StyleGlobal.css';
+import { useNavigate } from 'react-router-dom';
 
-const Header = ({ 
-  title, 
-  subtitle, 
-  status, 
-  showBackButton = false, 
-  actionContent, 
-  stats = [], 
-  toggleDarkMode, 
-  isDark 
-}) => {
+const Header = ({ title, subtitle, stats }) => {
   const navigate = useNavigate();
 
   return (
     <header className="main-header">
       <div className="header-container">
-        
-        {/* Topo: Navegação e Utilidades */}
+        {/* Topo: Logo e Botão Voltar */}
         <div className="header-top">
-          {showBackButton ? (
-            <button onClick={() => navigate(-1)} className="back-button">
-              <ArrowLeft size={16} />
-              <span>Voltar</span>
-            </button>
-          ) : (
-            <Link to="/" className="brand-logo">TCC Unifor</Link>
-          )}
-
+          <button onClick={() => navigate(-1)} className="back-button">
+            ← Voltar
+          </button>
+          <div className="brand-logo">TCC Mobile</div>
           <div className="header-actions">
-            {actionContent}
-            <button onClick={toggleDarkMode} className="theme-toggle">
-              {isDark ? <Sun size={20} /> : <Moon size={20} />}
-            </button>
+            <button className="theme-toggle">🌙</button>
           </div>
         </div>
 
-        {/* Conteúdo Principal */}
+        {/* Corpo: Título e Estatísticas */}
         <div className="header-body">
-          <div className="header-info">
+          <div>
             <h1 className="header-title">{title}</h1>
-            {subtitle && <p className="header-subtitle">{subtitle}</p>}
-            
-            {status && (
-              <div className="status-badge-container">
-                <span className={`status-badge status-${status.type}`}>
-                  {status.label}
-                </span>
-              </div>
-            )}
+            <p className="header-subtitle">{subtitle}</p>
           </div>
 
-          {/* Cards de Estatísticas (Visão Bibliotecário) */}
-          {stats.length > 0 && (
+          {/* Grid de Estatísticas (Se houver) */}
+          {stats && (
             <div className="stats-grid">
-              {stats.map((stat, index) => (
-                <div key={index} className="stat-card">
-                  <div className="stat-icon-row">
-                    {stat.type === 'total' && <FileText size={14} />}
-                    {stat.type === 'open' && <Clock size={14} />}
-                    {stat.type === 'priority' && <AlertTriangle size={14} />}
-                    <span className="stat-label">{stat.label}</span>
-                  </div>
-                  <span className="stat-count">{stat.count}</span>
+              <div className="stat-card">
+                <div className="stat-icon-row">
+                  <span className="stat-label">Pendentes</span>
                 </div>
-              ))}
+                <div className="stat-count">{stats.pending || 0}</div>
+              </div>
+              <div className="stat-card">
+                <div className="stat-icon-row">
+                  <span className="stat-label">Aprovados</span>
+                </div>
+                <div className="stat-count">{stats.approved || 0}</div>
+              </div>
+              <div className="stat-card">
+                <div className="stat-icon-row">
+                  <span className="stat-label">Total</span>
+                </div>
+                <div className="stat-count">{stats.total || 0}</div>
+              </div>
             </div>
           )}
         </div>

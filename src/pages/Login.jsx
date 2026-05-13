@@ -16,6 +16,10 @@ const Login = ({ setUser }) => {
     else navigate('/AlunoDashboard');
   };
 
+  const handleForgotPassword = () => {
+    alert("Um e-mail de recuperação foi enviado para o endereço cadastrado!");
+  };
+
   return (
     <div className="login-page-container">
       
@@ -26,24 +30,41 @@ const Login = ({ setUser }) => {
                  src={logoUnifor} 
                  alt="Logo Unifor" 
                  style={{ 
-                 width: '100px',    
-                  height: 'auto', 
+                 width: '150px',           
                  objectFit: 'contain' 
                 }} 
                />
         </div>
         
-        <h1 style={{color: '#1875E8', fontSize: '32px', marginBottom: '10px'}}>Já fez seu TCC com a gente?</h1>
-        <p style={{fontSize: '14px', color: '#666', marginBottom: '30px'}}>Faça seu login e boas correções!</p>
+        <h1 
+        style={{
+          color: '#1875E8',
+          fontSize: '20px', 
+          marginBottom: '10px', 
+          textAlign: 'center', 
+          }}
+          >Já corrigiu seu TCC com a gente?</h1>
+        <p 
+        style={{
+          fontSize: '14px', 
+          color: '#666', 
+          marginBottom: '30px', 
+           textAlign: 'center' 
+  }}
+          >Faça seu login e boas correções!</p>
 
-        <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column' }}>
+
+        <form onSubmit={handleLogin} style={{
+           display: 'flex',
+           flexDirection: 'column' 
+           }}>
           
           
           <div className="form-group" style={{marginBottom: '15px'}}>
-            <label style={{fontSize: '12px', color: '#333', display: 'block', marginBottom: '5px'}}>E-mail</label>
+            <label style={{fontSize: '14px', color: '#333', display: 'block', marginBottom: '5px'}}>E-mail</label>
             <input 
-              type="email" 
-              placeholder="exemplo@gmail.com"
+              type="Matrícula" 
+              placeholder="Exemplo: 202312345"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required 
@@ -51,7 +72,7 @@ const Login = ({ setUser }) => {
           </div>
 
           <div className="form-group" style={{marginBottom: '15px'}}>
-            <label style={{fontSize: '12px', color: '#333', display: 'block', marginBottom: '5px'}}>Senha</label>
+            <label style={{fontSize: '14px', color: '#333', display: 'block', marginBottom: '5px'}}>Senha</label>
             <input 
               type="password" 
               placeholder="••••••••"
@@ -61,15 +82,35 @@ const Login = ({ setUser }) => {
             />
           </div>
 
-          <button type="submit" style={{backgroundColor: '#1875E8', color: 'white', padding: '12px', border: 'none', borderRadius: '20px', fontWeight: 'bold', cursor: 'pointer', marginTop: '10px'}}>
-            ENTRAR
+          <button type="submit" 
+          className="btn-entrar-style">
+                  ENTRAR
           </button>
           
-          <span style={{marginTop: '20px', textAlign: 'center', fontSize: '11px', textDecoration: 'underline', color: '#666'}}>PRIMEIRO ACESSO / ESQUECI MINHA SENHA</span>
-        </form>
+          <div style={{ 
+            marginTop: '20px', 
+            display: 'flex', 
+            flexDirection: 'column', 
+            gap: '8px', 
+            alignItems: 'center' 
+          }}>
+          </div>
+
+          <span style={{
+              fontSize: '12px',
+              textDecoration: 'underline',
+              textAlign: 'center',
+              marginBottom: '10px',
+              color: '#cf1616',
+              cursor: 'pointer'
+            }}
+            onClick={handleForgotPassword}>
+              ESQUECI MINHA SENHA
+            </span>
+          
+          </form>
       </div>
 
-      {/* LADO DIREITO: PAINEL VISUAL*/}
       <div className="login-side-image">
         <img 
           src={livroLogo} 
@@ -77,14 +118,18 @@ const Login = ({ setUser }) => {
           className="livro-icon"
         />
         <div className="info-box-right">
-          <p style={{fontSize: '14px', marginBottom: '10px'}}>Ainda não estuda com a gente?</p>
-          <button style={{background: 'transparent', border: '1px solid white', color: 'white', padding: '8px 20px', borderRadius: '20px', cursor: 'pointer'}}>
-            FAZER MATRÍCULA
-          </button>
+          <p style={{
+            fontSize: '15px',
+            marginBottom: '10px'
+            }}>Não tem uma conta?</p>
+            
+          <button className="btn-cadastro-outline" 
+            onClick={() => navigate('/cadastro')} 
+            >FAÇA SEU CADASTRO</button>
+          </div>
         </div>
-      </div>
 
-    </div>
+      </div>
   );
 };
 
