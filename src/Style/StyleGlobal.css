@@ -1,7 +1,10 @@
+/* ==========================================================================
+   1. VARIÁVEIS E CONFIGURAÇÕES GLOBAIS
+   ========================================================================== */
 :root {
   --unifor-dark-blue: #0A1D37;
   --light-blue: #1875E8;
-  --bg-form: #F5F9FF
+  --bg-form: #F5F9FF;
   --unifor-card-blue: #183863;
   --unifor-light-blue: #ADD8E6;
   --unifor-white: #FFFFFF;
@@ -10,315 +13,7 @@
   --status-approved-bg: #D1FAE5;
   --status-approved-text: #065F46;
   --text-main: #333;
-  --status-pendente:#b11e11;
-}
-
-body, html {
-  height: 100%;
-  background-color: var(--unifor-blue);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-body {
-  background-color: #020a1a; 
-  margin: 0;
-  height: 100vh;
-}
-
-.main-header {
-  background-color: var(--unifor-dark-blue);
-  color: var(--unifor-white);
-  width: 100%;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-}
-
-.header-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 24px 20px;
-}
-
-.header-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 24px;
-}
-
-.back-button {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255, 255, 255, 0.1);
-  border: none;
-  color: white;
-  padding: 6px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 12px;
-}
-
-.btn-cadastro-outline {
-  background: transparent;
-  border: 1px solid white;
-  color: white;
-  padding: 8px 20px;
-  border-radius: 20px;
-  margin-top: 10px;
-  cursor: pointer;
-  transition: all 0.2s ease; 
-}
-
-.btn-cadastro-outline:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.btn-cadastro-outline:active {
-  transform: scale(0.95);
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.btn-entrar-style {
-  background-color: #1875E8;
-  color: white;
-  padding: 12px;
-  border: none;
-  border-radius: 20px;
-  font-weight: bold;
-  cursor: pointer;
-  margin-top: 10px;
-  width: 100%;
-transition: all 0.3s ease;
-}
-
-btn-entrar-style:hover {
-  background-color: #145db3; 
-  transform: translateY(-2px); 
-  box-shadow: 0 5px 15px rgba(24, 117, 232, 0.4);
-}
-
-.btn-entrar-style:active {
-  transform: scale(0.95);
-  filter: brightness(0.9);
-}
-
-.brand-logo {
-  font-size: 20px;
-  font-weight: bold;
-  text-decoration: none;
-  color: white;
-}
-
-.brand-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-top: 5px;
-  margin-bottom: 15px;
-}
-
-.logo-top {
-  width: 150px;
-  height: auto;
-  object-fit: contain;
-  transition: transform 0.3s ease;
-}
-
-@media (max-width: 480px) {
-  .logo-top {
-    width: 120px;
-  }
-}
-
-.login-side-form {
-  flex: 1;
-  padding: 40px 60px; 
-  background-color: #F5F9FF;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; 
-  align-items: stretch;
-}
-
-.cadastro-container {
-  max-height: 90vh;
-}
-
-.scrollable-form {
-  overflow-y: auto;
-  scrollbar-width: thin;
-  overflow-x: hidden;
-  scrollbar-color: #1875E8 #F5F9FF;
-  padding-top: 10px;
-}
-
-.scrollable-form::-webkit-scrollbar {
-  width: 6px;
-}
-
-.scrollable-form::-webkit-scrollbar-thumb {
-  background-color: #1875E8;
-  border-radius: 10px;
-}
-
-.form-title {
-  color: #1875E8;
-  font-size: 24px;
-  text-align: center;
-  margin-bottom: 5px;
-  font-weight: 700;
-}
-
-.form-subtitle {
-  font-size: 14px;
-  color: #666;
-  text-align: center;
-  margin-bottom: 25px;
-}
-
-.form-row {
-  display: flex;
-  gap: 15px;
-}
-.form-row .form-group {
-  flex: 1;
-}
-
-.input-select {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #C4D1EB;
-  border-radius: 20px;
-  background-color: #FEFEFE;
-  appearance: none;
-  cursor: pointer;
-}
-
-.back-link {
-  margin-top: 15px;
-  text-align: center;
-  font-size: 12px;
-  text-decoration: underline;
-  color: #666;
-  cursor: pointer;
-  display: block;
-}
-
-@media (max-width: 768px) {
-  .login-page-container {
-    flex-direction: column;
-    width: 95%;
-    height: auto;
-    margin: 20px 0;
-  }
-  .login-side-image {
-    display: none; /* Esconde o lado azul no mobile para focar no cadastro */
-  }
-  .form-row {
-    flex-direction: column;
-    gap: 0;
-  }
-}
-
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.theme-toggle {
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-  padding: 8px;
-  border-radius: 50%;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.header-body {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 20px;
-}
-
-.header-title {
-  font-size: 28px;
-  font-weight: 700;
-  margin: 0;
-}
-
-.header-subtitle {
-  color: var(--unifor-light-blue);
-  font-size: 14px;
-  margin-top: 4px;
-  white-space: pre-line;
-}
-
-.status-badge-container {
-  margin-top: 16px;
-}
-
-.status-badge {
-  padding: 4px 16px;
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.status-pending { background: var(--status-pending-bg); color: var(--status-pending-text); }
-.status-approved { background: var(--status-approved-bg); color: var(--status-approved-text); }
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  width: 100%;
-  max-width: 400px;
-}
-
-.stat-card {
-  background-color: var(--unifor-card-blue);
-  padding: 12px;
-  border-radius: 12px;
-  border: 1px solid rgba(173, 216, 230, 0.1);
-  min-height: 100px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.stat-icon-row {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--unifor-light-blue);
-  margin-bottom: 8px;
-}
-
-.stat-label {
-  font-size: 10px;
-  text-transform: uppercase;
-}
-
-.stat-count {
-  font-size: 24px;
-  font-weight: 500;
-  color: var(--unifor-light-blue);
-}
-
-@media (max-width: 768px) {
-  .header-body { flex-direction: column; align-items: flex-start; }
-  .stats-grid { max-width: 100%; }
+  --status-pendente: #b11e11;
 }
 
 * {
@@ -328,27 +23,147 @@ btn-entrar-style:hover {
   font-family: 'Inter', sans-serif;
 }
 
+body, html {
+  height: 100%;
+  margin: 0;
+  background-color: #020a1a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ==========================================================================
+   2. ESTRUTURA DO DASHBOARD (HOME DO ALUNO)
+   ========================================================================== */
+
+
+.dashboard-wrapper, 
+.home-page-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #F8F9FA;
+  display: block;
+  padding-top: 90px;
+}
+
+.content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.section-title {
+  font-size: 24px;
+  color: #333;
+  margin: 0;
+}
+
+.section-subtitle {
+  color: #666;
+  margin: 5px 0 0 0;
+}
+
+.btn-novo-tcc {
+  background-color: var(--light-blue);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.3s ease;
+}
+
+.btn-novo-tcc:hover {
+  background-color: #145db3;
+}
+
+.tcc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 25px;
+}
+
+.tcc-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid #E0E0E0;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.tcc-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.tcc-title {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 25px;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.card-footer {
+  border-top: 1px solid #EEE;
+  padding-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #888;
+}
+
+
+.badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.status-alerta { background: #FFF3CD; color: #856404; }
+.status-progresso { background: #D1E7FF; color: #004085; }
+
+/* ==========================================================================
+   3. PÁGINAS DE LOGIN E CADASTRO
+   ========================================================================== */
+
 .login-page-container {
   display: flex;
-  width: 950px;
+  width: 100%;
+  max-width: 950px;
   height: 600px;
-  background-color: #F5F9FF; 
+  background-color: #F5F9FF;
   border-radius: 24px;
   overflow: hidden;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-  
-  
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative; 
 }
-
 
 .login-side-image {
   flex: 1.2;
   position: relative;
-  overflow: hidden;
   background: linear-gradient(135deg, #020a1a 0%, #051933 50%, #1875e8 100%);
   display: flex;
   flex-direction: column;
@@ -362,41 +177,21 @@ btn-entrar-style:hover {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 350px;         
+  width: 350px;
   pointer-events: none;
-  z-index: 0;
 }
 
-.login-side-image::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
-  background-size: 20px 20px;
-}
-
-.brand-Tcc {
-  font-weight: bold;
-  font-size: 24px;
-  color: var(--alura-dark);
-  margin-bottom: 20px;
-}
-
-.login-side-form h2 {
-  font-size: 28px;
-  color: var(--alura-blue);
-  margin-bottom: 8px;
-}
-
-.login-side-form p {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 30px;
+.login-side-form {
+  flex: 1;
+  padding: 30px 50px; 
+  background-color: #F5F9FF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
 }
 
 .form-group {
   margin-bottom: 15px;
-  text-align: left;
 }
 
 .form-group label {
@@ -406,47 +201,32 @@ btn-entrar-style:hover {
   color: var(--text-main);
 }
 
-.form-group input {
-  width: 100%; padding: 12px;
-  border: 1px solid #C4D1EB; border-radius: 20px; 
-  background-color: #FEFEFE; outline: none;
-}
-
-.form-group input, .btn-entrar{
+.form-group input, .input-select {
   width: 100%;
-  padding: 14px 20px;
-  border-radius: 50px; 
-  border: 1px solid #d1d9e6;
+  padding: 12px 20px;
+  border: 1px solid #C4D1EB;
+  border-radius: 50px;
+  background-color: #FEFEFE;
+  outline: none;
   font-size: 14px;
 }
 
-.btn-entrar {
-  background-color: #2b59ff; 
+.btn-entrar-style, .btn-entrar {
+  background-color: #2b59ff;
   color: white;
+  padding: 14px;
   border: none;
+  border-radius: 50px;
   font-weight: bold;
-  margin-top: 20px;
   cursor: pointer;
-}
-
-.link-footer {
-  margin-top: 20px;
-  text-align: center;
-  font-size: 11px;
-  text-decoration: underline;
-  color: #666;
-  cursor: pointer;
-}
-
-.info-box-right {
-  background-color: rgba(5, 25, 51, 0.8);
-  padding: 30px;
-  border-radius: 20px;
-  backdrop-filter: blur(10px); 
-  color: white;
-  text-align: center;
   width: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.btn-entrar-style:hover {
+  background-color: #145db3;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(24, 117, 232, 0.4);
 }
 
 .info-box-right {
@@ -460,7 +240,7 @@ btn-entrar-style:hover {
   z-index: 1;
 }
 
-.info-box-right button {
+.info-box-right button, .btn-cadastro-outline {
   background: transparent;
   border: 1px solid white;
   color: white;
@@ -468,4 +248,51 @@ btn-entrar-style:hover {
   border-radius: 20px;
   margin-top: 10px;
   cursor: pointer;
+  transition: 0.2s;
+}
+
+.info-box-right button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+
+.cadastro-container { max-height: 90vh; }
+.form-row { display: flex; gap: 15px; }
+.form-row .form-group { flex: 1; }
+
+.scrollable-form {
+  overflow-y: auto;
+  max-height: 100%;
+  padding-right: 10px;
+}
+
+.scrollable-form::-webkit-scrollbar { width: 6px; }
+.scrollable-form::-webkit-scrollbar-thumb {
+  background-color: var(--light-blue);
+  border-radius: 10px;
+}
+
+/* ==========================================================================
+   4. RESPONSIVIDADE LOGIN
+   ========================================================================== */
+@media (max-width: 768px) {
+  .login-page-container {
+    flex-direction: column;
+    width: 90%;
+    height: auto;
+    margin: 20px auto;
+  }
+  
+  .login-side-image {
+    display: none;
+  }
+  
+  .login-side-form {
+    padding: 30px 20px;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }

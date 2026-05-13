@@ -1,15 +1,25 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
-// Importamos apenas o Login para o teste
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Login from '../pages/login';
+import Cadastro from '../pages/cadastro';
+import AlunoDashboard from '../Pages/Aluno/HomeAluno';
 
-function TccRoutesApp({ setUser }) {
+function TccRoutesApp({ user, setUser }) {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Qualquer caminho agora vai renderizar o Login */}
-        <Route path="*" element={<Login setUser={setUser} />} />
+        <Route path="/login" element={<Login setUser={setUser} />} />
+        <Route path="/cadastro" element={<Cadastro />} />
+
+        <Route 
+          path="/AlunoDashboard" 
+          element={user ? <AlunoDashboard user={user} /> : <Navigate to="/login" />} 
+        />
+
+        <Route path="/LibrarianQueue" element={<div>Fila do Bibliotecário (Em breve)</div>} />
+
+        <Route path="/" element={<Navigate to="/login" replace />} /> 
+        <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
     </BrowserRouter>
   );
