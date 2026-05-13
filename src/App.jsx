@@ -5,7 +5,11 @@ import "./style/StyleGlobal.css";
 function App() {
   const [user, setUser] = useState(null);
 
-  return <TccRoutesApp setUser={setUser} />;
+  return (
+    <div className="App">
+      <TccRoutesApp setUser={setUser} user={user} />
+    </div>
+  );
 }
 
 export default App;

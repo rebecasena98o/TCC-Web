@@ -1,0 +1,125 @@
+
+
+.cadastro-page-body {
+    height: 100vh;
+    width: 100vw;
+    background-color: #020a1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    overflow: hidden; 
+}
+
+.cadastro-container {
+    display: flex;
+    width: 950px;
+    height: 650px; 
+    background-color: #F5F9FF;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+
+.cadastro-side-form {
+    flex: 1;
+    padding: 30px 50px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; 
+}
+
+
+.cadastro-side-form::-webkit-scrollbar {
+    width: 6px;
+}
+.cadastro-side-form::-webkit-scrollbar-thumb {
+    background-color: #1875E8;
+    border-radius: 10px;
+}
+
+.cadastro-brand-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.cadastro-logo {
+    width: 140px;
+    height: auto;
+}
+
+.cadastro-title {
+    color: #1875E8;
+    font-size: 24px;
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.cadastro-subtitle {
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.link-footer {
+  display: block;           /* Permite que a margem auto funcione */
+  text-align: center;       /* Centraliza o texto */
+  margin: 25px auto 10px;   /* Dá um espaçamento do botão e centraliza horizontalmente */
+  font-size: 14px;          /* Tamanho legível conforme a imagem */
+  color: #666;              /* Cor cinza suave */
+  cursor: pointer;          /* Cursor de mãozinha */
+  transition: all 0.2s;     /* Suaviza a interação */
+  width: fit-content;       /* Faz o elemento ter o tamanho exato do texto */
+}
+
+.link-footer:hover {
+  color: #1875E8;           /* Muda para o azul da Unifor ao passar o mouse */
+  text-decoration: underline; /* Adiciona o sublinhado apenas no hover */
+}
+
+
+.cadastro-side-info {
+    flex: 1.2;
+    background: linear-gradient(135deg, #020a1a 0%, #051933 50%, #1875e8 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 40px;
+    position: relative;
+}
+
+.cadastro-livro-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    opacity: 0.8;
+}
+
+.cadastro-info-box {
+    background-color: rgba(5, 25, 51, 0.6);
+    padding: 20px;
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+    text-align: center;
+    color: white;
+    width: 100%;
+    z-index: 1;
+}
+
+
+@media (max-width: 768px) {
+    .cadastro-container {
+        width: 95%;
+        height: 90vh;
+        flex-direction: column;
+    }
+    .cadastro-side-info {
+        display: none;
+    }
+}

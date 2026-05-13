@@ -1,0 +1,123 @@
+
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  background-color: var(--unifor-white, #FFFFFF);
+  border-bottom: 1px solid #f0f0f0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.header-container-home {
+  width: 95%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--unifor-dark-blue);
+  margin: 0;
+}
+
+.welcome-subtitle {
+  font-size: 13px;
+  color: #777;
+  margin: 4px 0 0 0;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.notification-bell {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bell-img {
+  width: 24px; 
+  height: 24px;
+  object-fit: contain;
+}
+
+.notification-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 10px;
+  height: 10px;
+  background-color: #ff4d4f;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.user-profile-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px;
+  border-radius: 50px;
+  transition: background 0.2s ease;
+  cursor: pointer;
+}
+
+.user-profile-group:hover {
+  background-color: #f5f9ff;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #eef2f6;
+}
+
+.user-name-display {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+.dropdown-arrow {
+  font-size: 10px;
+  color: #999;
+}
+
+.btn-sair-header {
+  background-color: var(--unifor-dark-blue);
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn-sair-header:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .main-header { height: auto; padding: 15px 0; }
+  .header-container-home { flex-direction: column; gap: 15px; }
+  .brand-title { font-size: 16px; text-align: center; }
+  .welcome-subtitle { text-align: center; }
+}
