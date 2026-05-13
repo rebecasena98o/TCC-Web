@@ -1,54 +1,46 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../Style/StyleHeader.css';
+import SininhoIcon from '../imgs/sininho-notification.png'; 
 
-const Header = ({ title, subtitle, stats }) => {
+const Header = ({ user }) => {
   const navigate = useNavigate();
 
   return (
     <header className="main-header">
-      <div className="header-container">
-        {/* Topo: Logo e Botão Voltar */}
-        <div className="header-top">
-          <button onClick={() => navigate(-1)} className="back-button">
-            ← Voltar
-          </button>
-          <div className="brand-logo">TCC Mobile</div>
-          <div className="header-actions">
-            <button className="theme-toggle">🌙</button>
-          </div>
+      <div className="header-container-home">
+        
+        
+        <div className="header-left">
+          <h1 className="brand-title">Sistema de Revisão de TCC - Unifor</h1>
+          <p className="welcome-subtitle">Bem-vindo, {user?.email?.split('@')[0] || 'Maria Silva'}</p>
         </div>
-
-        {/* Corpo: Título e Estatísticas */}
-        <div className="header-body">
-          <div>
-            <h1 className="header-title">{title}</h1>
-            <p className="header-subtitle">{subtitle}</p>
+        
+        
+        <div className="header-right">
+          <div className="notification-bell">
+            <img src={SininhoIcon} alt="Notificações" className="bell-img" />
+            <span className="notification-badge"></span>
           </div>
 
-          {/* Grid de Estatísticas (Se houver) */}
-          {stats && (
-            <div className="stats-grid">
-              <div className="stat-card">
-                <div className="stat-icon-row">
-                  <span className="stat-label">Pendentes</span>
-                </div>
-                <div className="stat-count">{stats.pending || 0}</div>
-              </div>
-              <div className="stat-card">
-                <div className="stat-icon-row">
-                  <span className="stat-label">Aprovados</span>
-                </div>
-                <div className="stat-count">{stats.approved || 0}</div>
-              </div>
-              <div className="stat-card">
-                <div className="stat-icon-row">
-                  <span className="stat-label">Total</span>
-                </div>
-                <div className="stat-count">{stats.total || 0}</div>
-              </div>
+          <div className="user-profile-group">
+            <div className="user-avatar-container">
+              
+              <img 
+                src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" 
+                alt="Avatar" 
+                className="user-avatar" 
+              />
             </div>
-          )}
+            <span className="user-name-display">{user?.email?.split('@')[0] || 'Rebeca'}</span>
+            <span className="dropdown-arrow">∨</span>
+          </div>
+
+          <button className="btn-sair-header" onClick={() => navigate('/login')}>
+            Sair
+          </button>
         </div>
+
       </div>
     </header>
   );
