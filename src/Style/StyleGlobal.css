@@ -111,6 +111,117 @@ btn-entrar-style:hover {
   color: white;
 }
 
+.brand-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.logo-top {
+  width: 150px;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+@media (max-width: 480px) {
+  .logo-top {
+    width: 120px;
+  }
+}
+
+.login-side-form {
+  flex: 1;
+  padding: 40px 60px; 
+  background-color: #F5F9FF;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; 
+  align-items: stretch;
+}
+
+.cadastro-container {
+  max-height: 90vh;
+}
+
+.scrollable-form {
+  overflow-y: auto;
+  scrollbar-width: thin;
+  overflow-x: hidden;
+  scrollbar-color: #1875E8 #F5F9FF;
+  padding-top: 10px;
+}
+
+.scrollable-form::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollable-form::-webkit-scrollbar-thumb {
+  background-color: #1875E8;
+  border-radius: 10px;
+}
+
+.form-title {
+  color: #1875E8;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
+.form-subtitle {
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+}
+.form-row .form-group {
+  flex: 1;
+}
+
+.input-select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #C4D1EB;
+  border-radius: 20px;
+  background-color: #FEFEFE;
+  appearance: none;
+  cursor: pointer;
+}
+
+.back-link {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 12px;
+  text-decoration: underline;
+  color: #666;
+  cursor: pointer;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .login-page-container {
+    flex-direction: column;
+    width: 95%;
+    height: auto;
+    margin: 20px 0;
+  }
+  .login-side-image {
+    display: none; /* Esconde o lado azul no mobile para focar no cadastro */
+  }
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
 .header-actions {
   display: flex;
   align-items: center;
@@ -124,6 +235,11 @@ btn-entrar-style:hover {
   cursor: pointer;
   padding: 8px;
   border-radius: 50%;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .header-body {
@@ -228,16 +344,6 @@ btn-entrar-style:hover {
   transform: translate(-50%, -50%);
 }
 
-.login-side-form {
-  flex: 1;
-  padding: 40px 60px;
-  background-color: #F5F9FF;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: stretch;
-  
-}
 
 .login-side-image {
   flex: 1.2;
