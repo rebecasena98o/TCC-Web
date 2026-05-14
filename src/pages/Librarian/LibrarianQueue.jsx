@@ -3,6 +3,7 @@ import Header from  '../../Components/Header.jsx'
 import QuickStatsList from './QuickStatsList/QuickStatsList.jsx'
 import WorkQueue from './LibrarianMain/WorkQueue/WorkQueue.jsx'
 import TccAnalysis from './LibrarianMain/TccAnalysis/TccAnalysis.jsx'
+import LibrarianMain from './LibrarianMain/LibrarianMain.jsx'
 
 function LibrarianQueue() {
 
@@ -80,8 +81,7 @@ function LibrarianQueue() {
         <div className="librarianQueue">
         <Header user={userInfo}/>
         {/* <QuickStatsList cardInfos={cardInfos}/> */}
-        {/* <WorkQueue tickets={tickets} /> */}
-        <TccAnalysis ticket={tickets[0]} />
+        <LibrarianMain tickets={tickets} />
         </div>
     )
 }

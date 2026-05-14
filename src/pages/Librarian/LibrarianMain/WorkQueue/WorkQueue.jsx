@@ -11,7 +11,7 @@ const typeMap = {
 
 const filterOptions = ["Todos", "Pendente", "Em Correção", "Ajustes Necessários", "Aprovado"]
 
-function WorkQueue({ tickets }) {
+function WorkQueue({ tickets, onSelect, selectedTicket }) {
     const [filter, setFilter] = useState("Todos")
 
     const filtered = tickets.filter(t =>
@@ -35,6 +35,8 @@ function WorkQueue({ tickets }) {
                     <WorkCard
                         key={index}
                         ticket={{ ...ticket, type: typeMap[ticket.type] }}
+                        onSelect={onSelect}
+                        isSelected={selectedTicket?.user === ticket.user && selectedTicket?.title === ticket.title}
                     />
                 ))}
             </div>

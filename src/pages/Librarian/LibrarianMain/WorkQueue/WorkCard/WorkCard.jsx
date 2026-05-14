@@ -26,14 +26,14 @@ const statusConfig = {
     },
 }
 
-function WorkCard({ ticket }) {
+function WorkCard({ ticket, onSelect, isSelected }) {
     const [selected, setSelected] = useState(false)
     const status = statusConfig[ticket.type] || statusConfig["Pendente"]
 
     return (
-        <div 
-        className={`workCard ${selected ? 'workCardSelected' : ''}`}
-        onClick={() => setSelected(!selected)}
+        <div
+        className={`workCard ${isSelected ? 'workCardSelected' : ''}`}
+        onClick={() => onSelect(ticket)}
         >
             <div className="workCardUser">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
