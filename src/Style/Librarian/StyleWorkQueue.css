@@ -1,0 +1,45 @@
+.workQueue {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #E0E0E0;
+    border-radius: 16px;
+    width: 394px;
+    height: 670px;
+}
+
+.workQueueTitle {
+    font-size: 20px;
+    font-weight: 700;
+    color: #222;
+    margin: 0;
+}
+
+.workQueueSelect {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: #f5f5f5;
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+    padding: 8px 36px 8px 12px;
+    font-size: 14px;
+    color: #444;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24'%3E%3Cpath fill='%23888' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    outline: none;
+    margin-bottom: 30px;
+}
+
+.workQueueSelect:focus {
+    border-color: rgb(169, 191, 215);
+}
+
+.workQueueList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
