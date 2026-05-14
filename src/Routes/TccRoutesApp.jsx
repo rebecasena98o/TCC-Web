@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Login from '../pages/login';
 import Cadastro from '../pages/cadastro';
 import AlunoDashboard from '../Pages/Aluno/HomeAluno';
+import LibrarianQueue from '../pages/Librarian/LibrarianQueue';
 
 function TccRoutesApp({ user, setUser }) {
   return (
@@ -16,7 +17,7 @@ function TccRoutesApp({ user, setUser }) {
           element={user ? <AlunoDashboard user={user} /> : <Navigate to="/login" />} 
         />
 
-        <Route path="/LibrarianQueue" element={<div>Fila do Bibliotecário (Em breve)</div>} />
+        <Route path="/LibrarianQueue" element={<LibrarianQueue />} />
 
         <Route path="/" element={<Navigate to="/login" replace />} /> 
         <Route path="*" element={<Navigate to="/login" />} />
