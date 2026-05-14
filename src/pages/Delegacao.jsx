@@ -108,10 +108,14 @@ export default function Delegacao({ user }) {
     setTimeout(() => setFeedback(null), 3500);
   }
 
+  const innerStyle = {
+    margin: '0 32px',
+  };
+
   return (
     <div className="delegacao-page">
 
-      <header className="delegacao-header">
+      <header className="delegacao-header" style={innerStyle}>
         <div className="delegacao-header-left">
           <h1 className="delegacao-header-title">Painel Administrativo - Unifor</h1>
           <p className="delegacao-header-sub">
@@ -121,12 +125,12 @@ export default function Delegacao({ user }) {
         <button className="btn-sair" onClick={() => navigate('/login')}>Sair</button>
       </header>
 
-      <div className="delegacao-top-bar">
+      <div className="delegacao-top-bar" style={innerStyle}>
         <img src={logoUnifor} alt="Logo Unifor" className="delegacao-logo" />
         <span className="delegacao-top-title">Painel Administrativo</span>
       </div>
 
-      <nav className="delegacao-nav">
+      <nav className="delegacao-nav" style={innerStyle}>
         {['Analytics', 'Delegação', 'Bibliotecários'].map(aba => (
           <button
             key={aba}
