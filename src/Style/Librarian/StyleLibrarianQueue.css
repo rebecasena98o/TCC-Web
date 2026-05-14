@@ -1,5 +1,16 @@
-/*ACHAR UMA FORMA DE MUDAR ISSO SEM QUEBRAR O RESTO*/
-body {
-    background-color: #F8F9FA;
+.librarianQueue {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
+    min-height: 100vh;
+    background-color: #F8F9FA;
+    display: block;
+    padding-top: 90px;
+}
+
+.librarianQueueContent {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }

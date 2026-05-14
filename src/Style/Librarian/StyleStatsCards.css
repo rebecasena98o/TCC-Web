@@ -1,5 +1,5 @@
 .containerCard {
-    width: 300px;
+    flex: 1;
     height: 100px;
     display: flex;
     flex-direction: row;

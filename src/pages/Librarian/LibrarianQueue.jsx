@@ -79,9 +79,11 @@ function LibrarianQueue() {
 
     return (
         <div className="librarianQueue">
-        <Header user={userInfo}/>
-        {/* <QuickStatsList cardInfos={cardInfos}/> */}
-        <LibrarianMain tickets={tickets} />
+            <Header user={userInfo}/>
+            <div className="librarianQueueContent">
+                <QuickStatsList cardInfos={cardInfos}/>
+                <LibrarianMain tickets={tickets} />
+            </div>
         </div>
     )
 }
