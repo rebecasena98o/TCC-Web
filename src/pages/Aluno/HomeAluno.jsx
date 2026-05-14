@@ -1,9 +1,15 @@
 import React from 'react';
 import Header from '../../components/Header';
 import '../../Style/StyleGlobal.css';
+import { useNavigate } from 'react-router-dom';
 
 const HomeAluno = ({ user }) => {
-  
+  const navigate = useNavigate();
+
+  const handleCardClick = (tcc) => {
+    navigate('/detalhes-tcc', { state: { tccSelecionado: tcc } });
+  };
+
   const meusTccs = [
     {
       id: 1,
@@ -29,7 +35,8 @@ const HomeAluno = ({ user }) => {
     <div className="dashboard-wrapper">
       <Header user={user} />
       
-      <main className="content-container">
+      
+      <main className="content-container" style={{ paddingTop: '110px' }}>
         <div className="content-header">
           <div>
             <h2 className="section-title">Meus TCCs</h2>
@@ -42,7 +49,13 @@ const HomeAluno = ({ user }) => {
 
         <div className="tcc-grid">
           {meusTccs.map(tcc => (
-            <div key={tcc.id} className="tcc-card">
+           
+            <div 
+              key={tcc.id} 
+              className="tcc-card" 
+              onClick={() => handleCardClick(tcc)}
+              style={{ cursor: 'pointer' }}
+            >
               <div className="card-header">
                 <i className="icon-doc">📄</i>
                 <span className={`badge ${tcc.statusClass}`}>{tcc.status}</span>
