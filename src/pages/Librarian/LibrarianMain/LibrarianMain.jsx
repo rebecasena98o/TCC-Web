@@ -9,9 +9,7 @@ function LibrarianMain({ tickets }) {
     return (
         <div className="librarianMain">
             <WorkQueue tickets={tickets} onSelect={setSelectedTicket} selectedTicket={selectedTicket} />
-            {selectedTicket && (
-                <TccAnalysis ticket={selectedTicket} />
-            )}
+            {selectedTicket && (<TccAnalysis ticket={selectedTicket} />)}
         </div>
     )
 }

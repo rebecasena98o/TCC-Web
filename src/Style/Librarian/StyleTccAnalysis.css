@@ -118,8 +118,7 @@
     gap: 10px;
 }
 
-.tccBtnDownload,
-.tccBtnUpload {
+.tccBtnDownload, .tccBtnUpload {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -141,8 +140,7 @@
     color: #fff;
 }
 
-.tccBtnDownload svg,
-.tccBtnUpload svg {
+.tccBtnDownload svg, .tccBtnUpload svg {
     width: 18px;
     height: 18px;
     fill: #fff;

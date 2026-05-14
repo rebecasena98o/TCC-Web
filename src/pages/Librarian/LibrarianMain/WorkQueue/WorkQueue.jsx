@@ -21,14 +21,8 @@ function WorkQueue({ tickets, onSelect, selectedTicket }) {
     return (
         <div className="workQueue">
             <h2 className="workQueueTitle">Fila de Trabalho</h2>
-            <select
-                className="workQueueSelect"
-                value={filter}
-                onChange={e => setFilter(e.target.value)}
-            >
-                {filterOptions.map(opt => (
-                    <option key={opt} value={opt}>{opt}</option>
-                ))}
+            <select className="workQueueSelect" value={filter} onChange={e => setFilter(e.target.value)}>
+                {filterOptions.map(opt => (<option key={opt} value={opt}>{opt}</option>))}
             </select>
             <div className="workQueueList">
                 {filtered.map((ticket, index) => (

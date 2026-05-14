@@ -4,9 +4,7 @@ import '../../../../../Style/Librarian/StyleMessageList.css'
 function MessageList({ messages }) {
     return (
         <div className="messageList">
-            {messages.map((msg, index) => (
-                <Message key={index} message={msg} />
-            ))}
+            {messages.map((msg, index) => (<Message key={index} message={msg} />))}
         </div>
     )
 }

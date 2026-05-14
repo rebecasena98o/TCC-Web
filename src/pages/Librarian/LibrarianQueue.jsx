@@ -1,8 +1,6 @@
 import '../../Style/Librarian/StyleLibrarianQueue.css'
 import Header from  '../../Components/Header.jsx'
 import QuickStatsList from './QuickStatsList/QuickStatsList.jsx'
-import WorkQueue from './LibrarianMain/WorkQueue/WorkQueue.jsx'
-import TccAnalysis from './LibrarianMain/TccAnalysis/TccAnalysis.jsx'
 import LibrarianMain from './LibrarianMain/LibrarianMain.jsx'
 
 function LibrarianQueue() {
@@ -69,13 +67,6 @@ function LibrarianQueue() {
             type: "APROVADO"
         }
     ]
-
-    const testTicket = {
-        user: "Maria Silva",
-        title: "Análise de Sistemas de Informação na Gestão Empresarial",
-        type: "Ajustes Necessários",
-        version: 2
-    }
 
     return (
         <div className="librarianQueue">
