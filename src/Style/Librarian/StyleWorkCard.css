@@ -1,0 +1,63 @@
+.workCard {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 14px;
+    border: 1px solid #E0E0E0;
+    border-radius: 12px;
+    background-color: #fff;
+    width: 350px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.workCardUser {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+}
+
+.workCardUser svg {
+    width: 18px;
+    height: 18px;
+    fill: #888;
+}
+
+.workCardTitle {
+    font-size: 14px;
+    font-weight: 600;
+    color: #222;
+}
+
+.workCardFooter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.workCardBadge {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.workCardBadgeSvg svg {
+    width: 14px;
+    height: 14px;
+    fill: #fff;
+}
+
+.workCardVersion {
+    font-size: 12px;
+    color: #888;
+}
+
+.workCardSelected {
+    background-color: rgb(239, 246, 255);
+    border-color: rgb(169, 191, 215);
+}

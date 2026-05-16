@@ -1,0 +1,47 @@
+.workOption {
+    display: flex;
+    flex-direction: row;
+    background-color: #f0f0f0;
+    border-radius: 30px;
+    padding: 4px;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.workOptionBtn {
+    flex: 1;
+    padding: 8px 0;
+    border: none;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    background-color: transparent;
+    color: #888;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.workOptionSelected {
+    background-color: #fff;
+    color: #222;
+    font-weight: 600;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.workOptionBadge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(44, 126, 254);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    margin-left: 6px;
+}
+
+.workOptionSelected .workOptionBadge {
+    background-color: rgb(44, 126, 254);
+}

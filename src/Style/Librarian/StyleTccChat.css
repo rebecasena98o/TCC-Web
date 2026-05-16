@@ -1,0 +1,52 @@
+.tccChat {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.tccChatMessages {
+    border: 1px solid #E0E0E0;
+    border-radius: 12px;
+    height: 380px;
+    overflow-y: auto;
+    background-color: #fff;
+}
+
+.tccChatInput {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #f5f5f5;
+    border-radius: 12px;
+    padding: 8px 12px;
+}
+
+.tccChatInput input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    color: #444;
+    outline: none;
+}
+
+.tccChatInput input::placeholder {
+    color: #bbb;
+}
+
+.tccChatInput button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(44, 126, 254);
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.tccChatInput button svg {
+    width: 20px;
+    height: 20px;
+    fill: #fff;
+}
