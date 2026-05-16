@@ -1,26 +1,37 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+
 import Login from '../pages/login';
 import Cadastro from '../pages/cadastro';
 import AlunoDashboard from '../Pages/Aluno/HomeAluno';
 import LibrarianQueue from '../pages/Librarian/LibrarianQueue';
+import Delegacao from '../pages/Admin/Delegacao';
 
 function TccRoutesApp({ user, setUser }) {
   return (
     <BrowserRouter>
       <Routes>
+
         <Route path="/login" element={<Login setUser={setUser} />} />
         <Route path="/cadastro" element={<Cadastro />} />
 
-        <Route 
-          path="/AlunoDashboard" 
-          element={user ? <AlunoDashboard user={user} /> : <Navigate to="/login" />} 
+        <Route
+          path="/AlunoDashboard"
+          element={
+            user
+              ? <AlunoDashboard user={user} />
+              : <Navigate to="/login" />
+          }
         />
 
         <Route path="/LibrarianQueue" element={<LibrarianQueue />} />
 
-        <Route path="/" element={<Navigate to="/login" replace />} /> 
+        {/* 🔥 ADMIN AQUI */}
+        <Route path="/admin/delegacao" element={<Delegacao user={user} />} />
+
+        <Route path="/" element={<Navigate to="/login" replace />} />
         <Route path="*" element={<Navigate to="/login" />} />
+
       </Routes>
     </BrowserRouter>
   );
