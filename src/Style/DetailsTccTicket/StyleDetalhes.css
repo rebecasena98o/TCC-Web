@@ -1,11 +1,23 @@
+.dashboard-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #F8F9FA; /* Força o cinza claro padrão do projeto em toda a extensão */
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+
 .ticket-container {
   display: flex;
   max-width: 1300px;
+  width: 100%;
   margin: 0 auto;
   gap: 30px;
   padding: 20px; 
-  height: calc(100vh - 110px);
+  min-height: calc(100vh - 110px); 
   box-sizing: border-box; 
+  align-items: flex-start;
 }
 
 
@@ -18,7 +30,10 @@
   display: flex;
   flex-direction: column;
   gap: 25px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
+
+
 
 .info-card-aluno {
   display: flex;
@@ -27,9 +42,15 @@
   padding-bottom: 20px;
   border-bottom: 1px solid #eee;
 }
+.user-avatar-placeholder { 
+  font-size: 24px; 
+  background-color: #f0f2f5;
+  padding: 10px;
+  border-radius: 50%;
+  line-height: 1;
+}
 
-.user-icon { font-size: 30px; }
-.info-card-aluno h4 { margin: 0; color: #333; }
+.info-card-aluno h4 { margin: 0; color: #333; font-size: 16px; }
 .info-card-aluno p { margin: 0; font-size: 13px; color: #888; }
 
 .tcc-detail-box label, .status-container-ticket label {
@@ -40,7 +61,7 @@
   font-weight: bold;
 }
 
-.tcc-detail-box h3 { margin-top: 10px; font-size: 18px; color: #1a1d37; }
+.tcc-detail-box h3 { margin-top: 10px; font-size: 18px; color: #1a1d37; line-height: 1.4; }
 
 .status-badge-grande {
   margin-top: 10px;
@@ -49,6 +70,9 @@
   border-radius: 8px;
   font-weight: bold;
 }
+
+.status-progresso { background-color: #EBF4FF; color: #1875E8; }
+.status-alerta { background-color: #FFF3CD; color: #856404; }
 
 .ticket-actions {
   margin-top: auto;
@@ -174,18 +198,26 @@
    CONEXÃO COM O COMPONENTE REUTILIZADO TCCCHAT (ESTILOS DO BIBLIOTECÁRIO)
    ========================================================================== */
 
-/* Garante que a seção de chat ocupe o espaço correto na sua tela */
+/* Contêiner da seção da direita que envelopa o Chat */
 .chat-section {
+  flex: 2;
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
   border: 1px solid #E0E0E0;
   border-radius: 16px;
-  height: 600px; /* Ajuste a altura para alinhar com sua sidebar */
+  height: 600px; /* Mantém a janela do chat com tamanho controlado e scroll interno */
   overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
-/* Base do Componente TccChat */
+.chat-header {
+  padding: 20px;
+  background: #fcfcfc;
+  border-bottom: 1px solid #eee;
+}
+
+/* Base estrutural interna do Componente TccChat */
 .tccChat {
   display: flex;
   flex-direction: column;
@@ -193,9 +225,10 @@
   height: 100%;
   flex: 1;
   padding: 10px;
+  overflow: hidden;
 }
 
-/* Área interna de rolagem das mensagens */
+/* Área de rolagem das mensagens */
 .tccChatMessages {
   border: 1px solid #E0E0E0;
   border-radius: 12px;
@@ -205,7 +238,7 @@
   background-color: #fff;
 }
 
-/* Lista agregadora de bolhas */
+/* Lista agregadora de mensagens */
 .messageList {
   display: flex;
   flex-direction: column;
@@ -219,15 +252,8 @@
   width: 100%;
 }
 
-/* Bolha enviada por VOCÊ (Aluno -> Direita) */
-.messageRight {
-  justify-content: flex-end;
-}
-
-/* Bolha recebida do Outro (Bibliotecário -> Esquerda) */
-.messageLeft {
-  justify-content: flex-start;
-}
+.messageRight { justify-content: flex-end; }
+.messageLeft { justify-content: flex-start; }
 
 /* Customização visual das caixas de diálogo */
 .messageBubble {
@@ -241,7 +267,7 @@
 }
 
 .messageRight .messageBubble {
-  background-color: rgb(44, 126, 254); /* Azul padrão do projeto */
+  background-color: rgb(44, 126, 254);
   color: #fff;
   border-bottom-right-radius: 4px;
 }
@@ -252,16 +278,8 @@
   border-bottom-left-radius: 4px;
 }
 
-.messageText {
-  font-size: 14px;
-  line-height: 1.4;
-}
-
-.messageTime {
-  font-size: 11px;
-  opacity: 0.75;
-  align-self: flex-end;
-}
+.messageText { font-size: 14px; line-height: 1.4; }
+.messageTime { font-size: 11px; opacity: 0.75; align-self: flex-end; }
 
 /* Container inferior de inserção de texto */
 .tccChatInput {
@@ -283,11 +301,8 @@
   outline: none;
 }
 
-.tccChatInput input::placeholder {
-  color: #bbb;
-}
+.tccChatInput input::placeholder { color: #bbb; }
 
-/* Botão azul de enviar mensagem */
 .tccChatInput button {
   display: flex;
   align-items: center;
@@ -300,12 +315,5 @@
   transition: background-color 0.2s ease;
 }
 
-.tccChatInput button:hover {
-  background-color: #1a6bdf;
-}
-
-.tccChatInput button svg {
-  width: 18px;
-  height: 18px;
-  fill: #fff;
-}
+.tccChatInput button:hover { background-color: #1a6bdf; }
+.tccChatInput button svg { width: 18px; height: 18px; fill: #fff; }
