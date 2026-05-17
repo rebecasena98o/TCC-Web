@@ -28,8 +28,12 @@ function TccRoutesApp({ user, setUser }) {
 
         <Route path="/detalhes-tcc" element={<DetalhesTccAluno user={user} />} />
 
-        <Route path="/" element={<Navigate to="/login" replace />} /> 
+        {/* 🔥 ADMIN AQUI */}
+        <Route path="/admin/delegacao" element={<Delegacao user={user} />} />
+
+        <Route path="/" element={<Navigate to="/login" replace />} />
         <Route path="*" element={<Navigate to="/login" />} />
+
       </Routes>
   );
 }
