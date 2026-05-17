@@ -2,15 +2,13 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import Header from '../../components/Header';
 import '../../Style/StyleDetalhes.css';
-
-// CORREÇÃO: Importar as imagens como variáveis para usar no src
-import iconeUpload from '../../imgs/enviar.png';
-import iconeDownload from '../../imgs/caixa-de-entrada.png';
+import iconeUpload from '../../imgs/Chat/enviar.png';
+import iconeDownload from '../../imgs/Chat/caixa-de-entrada.png';
 
 const DetalhesTccAluno = ({ user }) => {
   const location = useLocation();
   
-  // Captura os dados vindos da Home ou define um padrão
+ 
   const tcc = location.state?.tccSelecionado || {
     titulo: "Título Padrão",
     status: "Em análise",
@@ -22,10 +20,10 @@ const DetalhesTccAluno = ({ user }) => {
     <div className="dashboard-wrapper">
       <Header user={user} />
       
-      {/* Adicionado paddingTop para não ficar por baixo da Header fixa */}
+      
       <main className="ticket-container" style={{ paddingTop: '110px' }}>
         
-        {/* LADO ESQUERDO: Sidebar com Informações */}
+        
         <aside className="ticket-sidebar">
           <div className="info-card-aluno">
             <div className="user-avatar-placeholder">👤</div>

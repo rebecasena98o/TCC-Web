@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import logoUnifor from '../imgs/logo-unifor.png';
-import livroLogo from '../imgs/Livro_Logo.png';
+import logoUnifor from '../../imgs/LogoUnifor/logo-unifor.png';
+import livroLogo from '../../imgs/LogoTccWeb/Livro_Logo.png';
 
 const Login = ({ setUser }) => {
   const navigate = useNavigate();
@@ -10,10 +10,20 @@ const Login = ({ setUser }) => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    const role = email.includes('bib') ? 'LIBRARIAN' : 'STUDENT';
-    setUser({ email, role });
-    if(role === 'LIBRARIAN') navigate('/LibrarianQueue');
-    else navigate('/AlunoDashboard');
+    if (email === "admin@unifor.br") {
+      
+      setUser({ email, role: 'admin' });
+      navigate('/admin/delegacao');
+      
+    } else if (email === "bibliotecario@unifor.br" || email.includes('bib')) {
+      setUser({ email, role: 'LIBRARIAN' });
+      navigate('/librarian/queue');
+      
+    } else {
+      
+      setUser({ email, role: 'STUDENT' });
+      navigate('/HomeAluno');
+    }
   };
 
   const handleForgotPassword = () => {

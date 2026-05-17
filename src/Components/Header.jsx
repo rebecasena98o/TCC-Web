@@ -1,17 +1,29 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import '../Style/StyleHeader.css';
-import SininhoIcon from '../imgs/sininho-notification.png'; 
+import { useNavigate, useLocation } from 'react-router-dom';
+import './StyleHeader.css';
+import { FaArrowLeft } from 'react-icons/fa';
+import SininhoIcon from '../imgs/Header/sininho-notification.png'; 
 
 const Header = ({ user }) => {
   const navigate = useNavigate();
+  const location = useLocation();
+
+   const estaNaTelaDoTicket = location.pathname === '/detalhes-tcc';
 
   return (
     <header className="main-header">
       <div className="header-container-home">
         
         
-        <div className="header-left">
+        <div className="header-left-group">
+          {estaNaTelaDoTicket && (
+            <button 
+            onClick={() => navigate('/HomeAluno')} 
+            className="btn-voltar-header"
+          >
+    <FaArrowLeft /> Voltar para o Painel
+  </button>
+)}
           <h1 className="brand-title">Sistema de Revisão de TCC - Unifor</h1>
           <p className="welcome-subtitle">Bem-vindo, {user?.email?.split('@')[0] || 'Maria Silva'}</p>
         </div>
