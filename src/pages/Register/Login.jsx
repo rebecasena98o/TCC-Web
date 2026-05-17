@@ -22,7 +22,7 @@ const Login = ({ setUser }) => {
     } else {
       
       setUser({ email, role: 'STUDENT' });
-      navigate('/HomeAluno');
+      navigate('/aluno/homealuno');
     }
   };
 

@@ -1,13 +1,14 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
-import AlunoDashboard from '../pages/Aluno/HomeAluno';
+
 import DetalhesTccAluno from '../pages/Tickets/DetalhesTccAluno';
 
 import AdminRoutes from './Admin/AdminRoutes';
 import LoginRoutes from './Register/LoginRoutes';
 import RegisterRoutes from './Register/RegisterRoutes';
 import LibrarianRoutes from './Librarian/LibrarianRoutes';
+import AlunoRoutes from './Aluno/AlunoRoutes';
 
 function TccRoutesApp({ user, setUser }) {
   return (
@@ -17,19 +18,13 @@ function TccRoutesApp({ user, setUser }) {
 
         {RegisterRoutes()}
 
-        <Route
-          path="/HomeAluno" 
-          element={user ? <AlunoDashboard user={user} /> : <Navigate to="/login" />} 
-        />
+        {AlunoRoutes({ user })}
 
         {AdminRoutes()}
 
         {LibrarianRoutes()}
 
         <Route path="/detalhes-tcc" element={<DetalhesTccAluno user={user} />} />
-
-        {/* 🔥 ADMIN AQUI */}
-        <Route path="/admin/delegacao" element={<Delegacao user={user} />} />
 
         <Route path="/" element={<Navigate to="/login" replace />} />
         <Route path="*" element={<Navigate to="/login" />} />
