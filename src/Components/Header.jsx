@@ -18,13 +18,13 @@ const Header = ({ user }) => {
         <div className="header-left-group">
           {estaNaTelaDoTicket && (
             <button 
-            onClick={() => navigate('/HomeAluno')} 
+            onClick={() => navigate('/aluno/homealuno')} 
             className="btn-voltar-header"
           >
     <FaArrowLeft /> Voltar para o Painel
   </button>
 )}
-          <h1 className="brand-title">Sistema de Revisão de TCC - Unifor</h1>
+              <h1 className="brand-title">Sistema de Revisão de TCC - Unifor</h1>
           <p className="welcome-subtitle">Bem-vindo, {user?.email?.split('@')[0] || 'Maria Silva'}</p>
         </div>
         
