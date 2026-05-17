@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import logoUnifor from '../../imgs/logo-unifor.png';
+import logoUnifor from '../../imgs/LogoUnifor/logo-unifor.png';
 import "../../Style/Admin/StyleDelegacao.css";
 
 const bibliotecarios = [

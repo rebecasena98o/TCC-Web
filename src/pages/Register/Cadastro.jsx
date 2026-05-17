@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import logoUnifor from '../imgs/logo-unifor.png';
-import livroLogo from '../imgs/Livro_Logo.png';
-import '../Style/StyleCadastro.css';
+import logoUnifor from '../../imgs/LogoUnifor/logo-unifor.png';
+import livroLogo from '../../imgs/LogoTccWeb/Livro_Logo.png';
+import '../../Style/Register/StyleCadastro.css';
 
 const Cadastro = () => {
   const navigate = useNavigate();
@@ -12,7 +12,7 @@ const Cadastro = () => {
     email: '',
     telefone: '',
     curso: '',
-    outroCurso: '', // Corrigido camelCase aqui
+    outroCurso: '', 
     senha: '',
     confirmarSenha: ''
   });

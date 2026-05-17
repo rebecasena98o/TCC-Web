@@ -1,39 +1,35 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
-import Login from '../pages/login';
-import Cadastro from '../pages/cadastro';
-import AlunoDashboard from '../Pages/Aluno/HomeAluno';
-import LibrarianQueue from '../pages/Librarian/LibrarianQueue';
-import Delegacao from '../pages/Admin/Delegacao';
+
+import DetalhesTccAluno from '../pages/Tickets/DetalhesTccAluno';
+
+import AdminRoutes from './Admin/AdminRoutes';
+import LoginRoutes from './Register/LoginRoutes';
+import RegisterRoutes from './Register/RegisterRoutes';
+import LibrarianRoutes from './Librarian/LibrarianRoutes';
+import AlunoRoutes from './Aluno/AlunoRoutes';
 
 function TccRoutesApp({ user, setUser }) {
   return (
-    <BrowserRouter>
       <Routes>
 
-        <Route path="/login" element={<Login setUser={setUser} />} />
-        <Route path="/cadastro" element={<Cadastro />} />
+        {LoginRoutes({ setUser })}
 
-        <Route
-          path="/AlunoDashboard"
-          element={
-            user
-              ? <AlunoDashboard user={user} />
-              : <Navigate to="/login" />
-          }
-        />
+        {RegisterRoutes()}
 
-        <Route path="/LibrarianQueue" element={<LibrarianQueue />} />
+        {AlunoRoutes({ user })}
 
-        {/* 🔥 ADMIN AQUI */}
-        <Route path="/admin/delegacao" element={<Delegacao user={user} />} />
+        {AdminRoutes()}
+
+        {LibrarianRoutes()}
+
+        <Route path="/detalhes-tcc" element={<DetalhesTccAluno user={user} />} />
 
         <Route path="/" element={<Navigate to="/login" replace />} />
         <Route path="*" element={<Navigate to="/login" />} />
 
       </Routes>
-    </BrowserRouter>
   );
 }
 
