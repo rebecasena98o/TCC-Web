@@ -40,20 +40,22 @@ const Header = ({ user, setUser }) => {
         
         
         <div className="header-left-group">
-          {estaNaTelaDoTicket && (
+          <div className="header-title-row">
+            {estaNaTelaDoTicket && (
             <button 
             onClick={handleVoltarPainel}
             className="btn-voltar-header"
           >
-        <FaArrowLeft /> Voltar para o Painel
+            <FaArrowLeft className="icon-voltar" /> Voltar
       </button>
-      )}
+    )}  
               <h1 className="brand-title">
                 Sistema de Revisão de TCC - Unifor
                 </h1>
+                </div> 
 
           <p className="welcome-subtitle">
-            Bem-vindo, {user?.name || user?.nome || user?.email?.split('@')[0] || 'Maria Silva'}
+            Bem-vindo, {getNomeExibicao()}
           </p>
         </div>
         
@@ -67,7 +69,7 @@ const Header = ({ user, setUser }) => {
             <div className="user-avatar-container">
               
               <img 
-                src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" 
+                src={user?.avatar || "https://api.dicebear.com/9.x/avataaars/svg?seed=Felix"}
                 alt="Avatar" 
                 className="user-avatar" 
               />
@@ -76,9 +78,9 @@ const Header = ({ user, setUser }) => {
               {getNomeExibicao()}
             </span>
             <span 
-            className={`dropdown-arrow ${isProfileOpen ? 'open' : ''}`}>∨
-            </span>
+            className={`dropdown-arrow ${isProfileOpen ? 'open' : ''}`}>∨</span>
           </div>
+          
             {isProfileOpen && (
                   <div className="profile-dropdown-content">
                      <div className="profile-dropdown-info">
