@@ -16,7 +16,7 @@ const Login = ({ setUser }) => {
       navigate('/admin/delegacao');
       
     } else if (email === "bibliotecario@unifor.br" || email.includes('bib')) {
-      setUser({ email, role: 'LIBRARIAN' });
+      setUser({ email, role: 'librarian' });
       navigate('/librarian/queue');
       
     } else {
@@ -27,7 +27,7 @@ const Login = ({ setUser }) => {
   };
 
   const handleForgotPassword = () => {
-    alert("Um e-mail de recuperação foi enviado para o endereço cadastrado!");
+    navigate('/forgot-password');
   };
 
   return (
@@ -97,27 +97,19 @@ const Login = ({ setUser }) => {
                   ENTRAR
           </button>
           
-          <div style={{ 
-            marginTop: '20px', 
-            display: 'flex', 
-            flexDirection: 'column', 
-            gap: '8px', 
-            alignItems: 'center' 
-          }}>
-          </div>
-
-          <span style={{
+          <div style={{ marginTop: '15px', display: 'flex', justifyContent: 'center' }}>
+            <span style={{
               fontSize: '12px',
               textDecoration: 'underline',
               textAlign: 'center',
               marginBottom: '10px',
               color: '#cf1616',
-              cursor: 'pointer'
+              cursor: 'pointer',
             }}
             onClick={handleForgotPassword}>
               ESQUECI MINHA SENHA
             </span>
-          
+          </div>
           </form>
       </div>
 

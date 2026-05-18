@@ -10,6 +10,7 @@ import RegisterRoutes from './Register/RegisterRoutes';
 import LibrarianRoutes from './Librarian/LibrarianRoutes';
 import AlunoRoutes from './Aluno/AlunoRoutes';
 import PerfilRoutes from './Perfil/PerfilRoutes';
+import ForgotPasswordRoutes from './Register/ForgotPasswordRoutes';
 
 function TccRoutesApp({ user, setUser }) {
   return (
@@ -18,6 +19,8 @@ function TccRoutesApp({ user, setUser }) {
         {LoginRoutes({ setUser })}
 
         {RegisterRoutes()}
+
+        {ForgotPasswordRoutes()}
 
         {PerfilRoutes({ user, setUser })}
 
