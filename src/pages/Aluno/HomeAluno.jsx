@@ -3,8 +3,9 @@ import Header from '../../Components/Header';
 import '../../Style/StyleGlobal.css';
 import { useNavigate } from 'react-router-dom';
 
-const HomeAluno = ({ user }) => {
+const HomeAluno = ({ user, setUser }) => {
   const navigate = useNavigate();
+  
 
   const handleCardClick = (tcc) => {
     navigate('/detalhes-tcc', { state: { tccSelecionado: tcc } });
@@ -33,7 +34,7 @@ const HomeAluno = ({ user }) => {
 
   return (
     <div className="dashboard-wrapper">
-      <Header user={user} />
+      <Header user={user} setUser={setUser} />
       
       
       <main className="content-container" style={{ paddingTop: '110px' }}>

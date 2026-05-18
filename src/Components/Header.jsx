@@ -1,16 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './StyleHeader.css';
-import { FaArrowLeft } from 'react-icons/fa';
+import { FaArrowLeft, FaUser, FaSignOutAlt } from 'react-icons/fa';
 import DropdownNotification from './DropdownNotification.jsx';
 import SininhoIcon from '../imgs/Header/sininho-notification.png'; 
 
-const Header = ({ user }) => {
+const Header = ({ user, setUser }) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
 
    const estaNaTelaDoTicket = location.pathname === '/detalhes-tcc';
    const isLibrarian = user?.email?.includes('admin') || user?.role === 'librarian';
+
+   const toggleProfileDropdown = () => {
+    setIsProfileOpen(!isProfileOpen);
+  };
 
    const handleVoltarPainel = () => {
     if (isLibrarian) {
@@ -18,6 +23,15 @@ const Header = ({ user }) => {
     } else {
       navigate('/aluno/homealuno');
     }
+  };
+
+  const handleLogout = () => {
+    if (setUser) setUser(null); 
+    navigate('/login');
+  };
+
+  const getNomeExibicao = () => {
+    return user?.name || user?.nome || user?.email?.split('@')[0] || 'Usuário';
   };
 
   return (
@@ -46,8 +60,10 @@ const Header = ({ user }) => {
         
         <div className="header-right">
           <DropdownNotification user={user} customIcon={SininhoIcon} />
+          
 
-          <div className="user-profile-group">
+         <div className="profile-dropdown-container">
+            <div className="user-profile-group" onClick={toggleProfileDropdown}>
             <div className="user-avatar-container">
               
               <img 
@@ -57,14 +73,28 @@ const Header = ({ user }) => {
               />
             </div>
             <span className="user-name-display">
-              {user?.name || user?.nome || user?.email?.split('@')[0] || 'Rebeca'}
+              {getNomeExibicao()}
             </span>
-            <span className="dropdown-arrow">∨</span>
+            <span 
+            className={`dropdown-arrow ${isProfileOpen ? 'open' : ''}`}>∨
+            </span>
           </div>
-
-          <button className="btn-sair-header" onClick={() => navigate('/login')}>
-            Sair
-          </button>
+            {isProfileOpen && (
+                  <div className="profile-dropdown-content">
+                     <div className="profile-dropdown-info">
+                        <strong>{getNomeExibicao()}</strong>
+                           <span>{user?.email || 'usuario@unifor.br'}</span>
+                  </div>
+                      <hr className="dropdown-divider" />
+                        <button className="dropdown-item" onClick={() => { navigate('/perfil'); setIsProfileOpen(false); }}>
+                          <FaUser className="item-icon" /> Perfil
+                  </button>
+                        <button className="dropdown-item logout" onClick={handleLogout}>
+                          <FaSignOutAlt className="item-icon" /> Sair
+                  </button>
+              </div>
+            )}
+          </div>
         </div>
 
       </div>
