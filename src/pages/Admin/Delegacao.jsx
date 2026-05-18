@@ -181,6 +181,12 @@ export default function Delegacao({ user }) {
 
   const [abaAtiva, setAbaAtiva] = useState('Delegação');
 
+  function handleNavClick(aba) {
+    setAbaAtiva(aba);
+    if (aba === 'Analytics') navigate('/admin/analytics');
+    if (aba === 'Bibliotecários') navigate('/admin/bibliotecarios');
+  }
+
   function abrirModal(ticket) {
     if (ticket.status === 'Aprovado') return;
     setModalTicket(ticket);
@@ -275,7 +281,7 @@ export default function Delegacao({ user }) {
                   ? 'nav-tab-active'
                   : ''
               }`}
-              onClick={() => setAbaAtiva(aba)}
+              onClick={() => handleNavClick(aba)}
             >
               {aba === 'Analytics' && '📊 '}
               {aba === 'Delegação' && '⇄ '}
