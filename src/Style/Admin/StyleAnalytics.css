@@ -1,0 +1,318 @@
+/* ─── StyleAnalytics.css ─────────────────────────────────────────────────── */
+
+.analytics-page {
+  min-height: 100vh;
+  background-color: #EEF2FF;
+  font-family: 'Inter', sans-serif;
+}
+
+body:has(.analytics-page) {
+  background-color: #EEF2FF !important;
+  display: block !important;
+  justify-content: unset !important;
+  align-items: unset !important;
+  height: auto !important;
+  min-height: 100vh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+html:has(.analytics-page) {
+  height: auto !important;
+  display: block !important;
+}
+
+/* ── Header topo branco ── */
+.analytics-header {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 32px;
+  border-bottom: 2px solid #e5e7eb;
+  box-sizing: border-box;
+  box-shadow: 0 2px 8px rgba(24, 117, 232, 0.08);
+}
+
+.analytics-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.analytics-header-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0A1D37;
+  margin: 0;
+}
+
+.analytics-header-sub {
+  font-size: 12px;
+  color: #1875E8;
+  margin: 0;
+}
+
+/* ── Barra branca com logo ── */
+.analytics-top-bar {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 32px;
+  border-bottom: 2px solid #e5e7eb;
+  box-sizing: border-box;
+}
+
+.analytics-logo {
+  width: 90px;
+  object-fit: contain;
+}
+
+.analytics-top-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1875E8;
+  letter-spacing: 0.5px;
+}
+
+/* ── Navegação ── */
+.analytics-nav {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 32px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  box-sizing: border-box;
+}
+
+.nav-tab {
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 8px 24px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #374151;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.2s ease;
+}
+
+.nav-tab:hover {
+  background-color: #e5e7eb;
+}
+
+.nav-tab-active {
+  background-color: #1875E8;
+  border-color: #1875E8;
+  font-weight: 700;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(24, 117, 232, 0.3);
+}
+
+/* ── Botão Sair ── */
+.btn-sair {
+  background-color: #1875E8;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 20px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-sair:hover {
+  background-color: #145db3;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(24, 117, 232, 0.4);
+}
+
+/* ── Conteúdo principal ── */
+.analytics-main {
+  padding: 32px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ── Cards de estatísticas ── */
+.analytics-cards-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.analytics-stat-card {
+  background-color: #ffffff;
+  border-radius: 14px;
+  padding: 20px 24px;
+  box-shadow: 0 4px 16px rgba(24, 117, 232, 0.08);
+  border: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.analytics-stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(24, 117, 232, 0.14);
+}
+
+.analytics-stat-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.analytics-stat-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+.analytics-stat-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0A1D37;
+  line-height: 1.1;
+}
+
+.analytics-stat-icon {
+  font-size: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon-blue   { background-color: #EFF6FF; }
+.icon-orange { background-color: #FFF7ED; }
+.icon-green  { background-color: #F0FDF4; }
+.icon-purple { background-color: #FAF5FF; }
+
+/* ── Card do Ranking ── */
+.analytics-ranking-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 28px 32px;
+  box-shadow: 0 4px 16px rgba(24, 117, 232, 0.08);
+  border: 1px solid #e5e7eb;
+}
+
+.analytics-ranking-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.analytics-ranking-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0A1D37;
+  margin: 0;
+}
+
+.btn-historico {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #ffffff;
+  color: #374151;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  padding: 7px 16px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.2s ease;
+}
+
+.btn-historico:hover {
+  background-color: #f3f4f6;
+  border-color: #C4D1EB;
+}
+
+/* ── Tabela ── */
+.analytics-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.analytics-table th {
+  text-align: left;
+  padding: 10px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  border-bottom: 2px solid #e5e7eb;
+  background-color: #F5F9FF;
+}
+
+.analytics-table td {
+  padding: 13px 12px;
+  font-size: 14px;
+  color: #374151;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.analytics-table tr:nth-child(even) td {
+  background-color: #F5F9FF;
+}
+
+.analytics-table tbody tr:hover td {
+  background-color: #eff6ff;
+  transition: background-color 0.15s ease;
+}
+
+.analytics-posicao-cell {
+  font-weight: 600;
+  color: #0A1D37;
+}
+
+/* ── Badges de status ── */
+.status-badge-analytics {
+  display: inline-block;
+  padding: 3px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-ativo   { background-color: #16a34a; color: #ffffff; }
+.status-inativo { background-color: #6b7280; color: #ffffff; }
+
+/* ── Responsivo ── */
+@media (max-width: 900px) {
+  .analytics-cards-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .analytics-header  { padding: 10px 16px; }
+  .analytics-top-bar { padding: 10px 16px; }
+  .analytics-nav     { padding: 12px 16px; gap: 4px; }
+  .analytics-main    { padding: 16px; }
+  .analytics-ranking-card { padding: 16px; }
+  .analytics-logo    { width: 70px; }
+  .analytics-table th,
+  .analytics-table td { padding: 8px 6px; font-size: 12px; }
+  .nav-tab           { padding: 6px 14px; font-size: 12px; }
+  .analytics-cards-row { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .analytics-cards-row { grid-template-columns: 1fr; }
+}

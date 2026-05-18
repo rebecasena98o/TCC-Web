@@ -23,7 +23,7 @@ function TccRoutesApp({ user, setUser }) {
 
         {AlunoRoutes({ user })}
 
-        {AdminRoutes()}
+        {AdminRoutes({ user })}
 
         {LibrarianRoutes()}
 
