@@ -25,7 +25,7 @@ function TccRoutesApp({ user, setUser }) {
 
         {AdminRoutes({ user })}
 
-        {LibrarianRoutes()}
+        {LibrarianRoutes({ user, setUser })}
 
         <Route path="/detalhes-tcc" element={<DetalhesTccAluno user={user} />} />
 
