@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './StyleHeader.css';
 import { FaArrowLeft } from 'react-icons/fa';
+import DropdownNotification from './DropdownNotification.jsx';
 import SininhoIcon from '../imgs/Header/sininho-notification.png'; 
 
 const Header = ({ user }) => {
@@ -9,6 +10,15 @@ const Header = ({ user }) => {
   const location = useLocation();
 
    const estaNaTelaDoTicket = location.pathname === '/detalhes-tcc';
+   const isLibrarian = user?.email?.includes('admin') || user?.role === 'librarian';
+
+   const handleVoltarPainel = () => {
+    if (isLibrarian) {
+      navigate('/LibrarianQueue'); 
+    } else {
+      navigate('/aluno/homealuno');
+    }
+  };
 
   return (
     <header className="main-header">
@@ -18,22 +28,24 @@ const Header = ({ user }) => {
         <div className="header-left-group">
           {estaNaTelaDoTicket && (
             <button 
-            onClick={() => navigate('/aluno/homealuno')} 
+            onClick={handleVoltarPainel}
             className="btn-voltar-header"
           >
-    <FaArrowLeft /> Voltar para o Painel
-  </button>
-)}
-              <h1 className="brand-title">Sistema de Revisão de TCC - Unifor</h1>
-          <p className="welcome-subtitle">Bem-vindo, {user?.email?.split('@')[0] || 'Maria Silva'}</p>
+        <FaArrowLeft /> Voltar para o Painel
+      </button>
+      )}
+              <h1 className="brand-title">
+                Sistema de Revisão de TCC - Unifor
+                </h1>
+
+          <p className="welcome-subtitle">
+            Bem-vindo, {user?.name || user?.nome || user?.email?.split('@')[0] || 'Maria Silva'}
+          </p>
         </div>
         
         
         <div className="header-right">
-          <div className="notification-bell">
-            <img src={SininhoIcon} alt="Notificações" className="bell-img" />
-            <span className="notification-badge"></span>
-          </div>
+          <DropdownNotification user={user} customIcon={SininhoIcon} />
 
           <div className="user-profile-group">
             <div className="user-avatar-container">
@@ -44,7 +56,9 @@ const Header = ({ user }) => {
                 className="user-avatar" 
               />
             </div>
-            <span className="user-name-display">{user?.email?.split('@')[0] || 'Rebeca'}</span>
+            <span className="user-name-display">
+              {user?.name || user?.nome || user?.email?.split('@')[0] || 'Rebeca'}
+            </span>
             <span className="dropdown-arrow">∨</span>
           </div>
 

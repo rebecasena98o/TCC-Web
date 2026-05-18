@@ -43,7 +43,6 @@
 
 .notification-bell {
   position: relative;
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -53,17 +52,6 @@
   width: 24px; 
   height: 24px;
   object-fit: contain;
-}
-
-.notification-badge {
-  position: absolute;
-  top: -2px;
-  right: -2px;
-  width: 10px;
-  height: 10px;
-  background-color: #ff4d4f;
-  border-radius: 50%;
-  border: 2px solid white;
 }
 
 .user-profile-group {
