@@ -9,6 +9,7 @@ import LoginRoutes from './Register/LoginRoutes';
 import RegisterRoutes from './Register/RegisterRoutes';
 import LibrarianRoutes from './Librarian/LibrarianRoutes';
 import AlunoRoutes from './Aluno/AlunoRoutes';
+import PerfilRoutes from './Perfil/PerfilRoutes';
 
 function TccRoutesApp({ user, setUser }) {
   return (
@@ -17,6 +18,8 @@ function TccRoutesApp({ user, setUser }) {
         {LoginRoutes({ setUser })}
 
         {RegisterRoutes()}
+
+        {PerfilRoutes({ user, setUser })}
 
         {AlunoRoutes({ user })}
 

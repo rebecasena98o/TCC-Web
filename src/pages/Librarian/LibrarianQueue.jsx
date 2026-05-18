@@ -3,11 +3,12 @@ import Header from  '../../Components/Header.jsx'
 import QuickStatsList from './QuickStatsList/QuickStatsList.jsx'
 import LibrarianMain from './LibrarianMain/LibrarianMain.jsx'
 
-function LibrarianQueue() {
+function LibrarianQueue({ user, setUser }) {
 
     const userInfo = {
         name: "testeName",
-        email: "admin@email.com"
+        email: "admin@email.com",
+        role: "librarian"
     }
 
     const cardInfos = [
@@ -70,7 +71,7 @@ function LibrarianQueue() {
 
     return (
         <div className="librarianQueue">
-            <Header user={userInfo}/>
+            <Header user={user || userInfo} setUser={setUser} />
             <div className="librarianQueueContent">
                 <QuickStatsList cardInfos={cardInfos}/>
                 <LibrarianMain tickets={tickets} />
