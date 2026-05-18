@@ -1,17 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../../Components/Header';
 import '../../Style/StyleGlobal.css';
+import NovoTicketModal from '../Tickets/NovoTicketModal';
 import { useNavigate } from 'react-router-dom';
 
 const HomeAluno = ({ user, setUser }) => {
   const navigate = useNavigate();
+  const [modalAberto, setModalAberto] = useState(false);
   
-
   const handleCardClick = (tcc) => {
     navigate('/detalhes-tcc', { state: { tccSelecionado: tcc } });
   };
 
-  const meusTccs = [
+  const [meusTccs, setMeusTccs] = useState([
     {
       id: 1,
       titulo: "Análise de Sistemas de Informação na Gestão Empresarial",
@@ -30,7 +31,21 @@ const HomeAluno = ({ user, setUser }) => {
       mensagens: 2,
       statusClass: "status-progresso"
     }
-  ];
+  ]);
+
+  const adicionarNovoTcc = (novoTitulo) => {
+    const novoTccObjeto = {
+      id: Date.now(), 
+      titulo: novoTitulo,
+      status: "Pendente",
+      versao: 1,
+      data: new Date().toISOString().split('T')[0], 
+      mensagens: 0,
+      statusClass: "status-pendente" 
+    };
+
+    setMeusTccs([novoTccObjeto, ...meusTccs]);
+  };
 
   return (
     <div className="dashboard-wrapper">
@@ -43,7 +58,9 @@ const HomeAluno = ({ user, setUser }) => {
             <h2 className="section-title">Meus TCCs</h2>
             <p className="section-subtitle">Acompanhe o status das suas revisões</p>
           </div>
-          <button className="btn-novo-tcc">
+
+          
+          <button className="btn-novo-tcc" onClick={() => setModalAberto(true)}>
             <span>+</span> Novo TCC
           </button>
         </div>
@@ -77,6 +94,13 @@ const HomeAluno = ({ user, setUser }) => {
           ))}
         </div>
       </main>
+
+      <NovoTicketModal 
+        isOpen={modalAberto} 
+        onClose={() => setModalAberto(false)} 
+        user={user} 
+        onAddTicket={adicionarNovoTcc}
+      />
     </div>
   );
 };
