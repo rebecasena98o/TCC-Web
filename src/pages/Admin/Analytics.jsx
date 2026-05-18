@@ -73,6 +73,7 @@ export default function Analytics({ user }) {
 
   function handleNavClick(aba) {
     setAbaAtiva(aba);
+    if (aba === 'Analytics') navigate('/admin/analytics');
     if (aba === 'Delegação') navigate('/admin/delegacao');
     if (aba === 'Bibliotecários') navigate('/admin/bibliotecarios');
   }
