@@ -6,8 +6,13 @@ import { useNavigate } from 'react-router-dom';
 
 const HomeAluno = ({ user, setUser }) => {
   const navigate = useNavigate();
+<<<<<<< frontend
   const [modalAberto, setModalAberto] = useState(false);
   
+=======
+  
+
+>>>>>>> main
   const handleCardClick = (tcc) => {
     navigate('/detalhes-tcc', { state: { tccSelecionado: tcc } });
   };
