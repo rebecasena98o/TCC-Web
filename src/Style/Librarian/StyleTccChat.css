@@ -2,12 +2,15 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
+    flex: 1;
+    min-height: 0;
 }
 
 .tccChatMessages {
     border: 1px solid #E0E0E0;
     border-radius: 12px;
-    height: 380px;
+    flex: 1;
+    min-height: 0;
     overflow-y: auto;
     background-color: #fff;
 }
