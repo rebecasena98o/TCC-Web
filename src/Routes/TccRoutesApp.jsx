@@ -10,6 +10,10 @@ import RegisterRoutes from './Register/RegisterRoutes';
 import LibrarianRoutes from './Librarian/LibrarianRoutes';
 import AlunoRoutes from './Aluno/AlunoRoutes';
 import PerfilRoutes from './Perfil/PerfilRoutes';
+<<<<<<< frontend
+import ForgotPasswordRoutes from './Register/ForgotPasswordRoutes';
+=======
+>>>>>>> main
 
 function TccRoutesApp({ user, setUser }) {
   return (
@@ -19,13 +23,18 @@ function TccRoutesApp({ user, setUser }) {
 
         {RegisterRoutes()}
 
+<<<<<<< frontend
+        {ForgotPasswordRoutes()}
+
+=======
+>>>>>>> main
         {PerfilRoutes({ user, setUser })}
 
         {AlunoRoutes({ user })}
 
         {AdminRoutes({ user })}
 
-        {LibrarianRoutes()}
+        {LibrarianRoutes({ user, setUser })}
 
         <Route path="/detalhes-tcc" element={<DetalhesTccAluno user={user} />} />
 

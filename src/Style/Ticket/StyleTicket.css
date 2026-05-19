@@ -1,0 +1,249 @@
+/* ==========================================================================
+   1. CONTAINER DO MODAL (OVERLAY)
+   ========================================================================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(2, 10, 26, 0.7);
+  backdrop-filter: blur(4px); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; 
+}
+
+.modal-card {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  position: relative;
+  box-sizing: border-box;
+}
+
+.modal-header {
+  background-color: #bddafa9a;  
+  border-radius: 10px 10px 0 0;
+  margin-bottom: 30px;
+
+}
+
+/* ==========================================================================
+   2. CABEÇALHO E ELEMENTOS DE FECHAMENTO
+   ========================================================================== */
+
+.btn-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  font-size: 1.25rem;
+  color: #020d1c;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.btn-modal-close:hover {
+  color: #ef4444; 
+}
+
+.modal-header h2 {
+  margin: 0 0 14px 0;
+  color: #0f172a;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.modal-header p {
+  margin: 0 0 25px 0;
+  color: #150032;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   3. ESTRUTURA DOS CAMPOS DE ENTRADA (FORMULÁRIO)
+   ========================================================================== */
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.modal-form-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #334155;
+  gap: 15px;
+}
+
+.modal-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+
+.modal-input-wrapper .input-icon {
+  position: absolute;
+  left: 14px;
+  color: #0a5acb;
+  font-size: 0.95rem;
+}
+
+.modal-input-wrapper input {
+  width: 100%;
+  padding: 11px 14px 11px 40px; 
+  font-size: 0.95rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  outline: none;
+  background-color: #ffffff;
+  transition: border-color 0.2s;
+}
+
+.modal-input-wrapper input:focus {
+  border-color: #1875E8; 
+}
+
+
+.field-disabled input {
+  background-color: #f1f5f9;
+  color: #07387e;
+  border-color: #e2e8f0;
+  cursor: not-allowed;
+}
+
+
+.text-area-wrapper {
+  align-items: flex-start;
+}
+
+.text-area-wrapper .textarea-icon {
+  top: 14px;
+}
+
+.text-area-wrapper textarea {
+  width: 100%;
+  padding: 11px 14px 11px 40px;
+  font-size: 0.95rem;
+  border: 1px solid #cce1cb;
+  border-radius: 8px;
+  outline: none;
+  resize: none;
+  font-family: inherit;
+}
+
+.text-area-wrapper textarea:focus {
+  border-color: #1875E8;
+}
+
+/* ==========================================================================
+   4. UPLOAD DE ARQUIVO (ANEXO)
+   ========================================================================== */
+
+.file-upload-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 8px 0;
+}
+
+.btn-upload-trigger {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  background-color: #f8fafc;
+  border: 2px dashed #cbd5e1;
+  border-radius: 8px;
+  color: #475569;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-upload-trigger:hover {
+  background-color: #f0f7ff;
+  border-color: #1875E8;
+  color: #1875E8;
+}
+
+
+.btn-upload-trigger.file-attached {
+  background-color: #f0fdf4;
+  border-color: #22c55e;
+  color: #166534;
+}
+
+.file-status-label {
+  font-size: 0.8rem;
+  color: #64748b;
+  text-align: center;
+}
+
+/* ==========================================================================
+   5. BOTÕES DE AÇÃO DO RODAPÉ
+   ========================================================================== */
+
+.modal-footer-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.btn-modal-cancel {
+  padding: 10px 16px;
+  background: transparent;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  color: #64748b;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-modal-cancel:hover {
+  background-color: #f1f5f9;
+  color: #334155;
+}
+
+.btn-modal-submit {
+  padding: 10px 20px;
+  background-color: #1875E8; 
+  border: none;
+  border-radius: 8px;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s, background-color 0.2s;
+}
+
+.btn-modal-submit:hover {
+  background-color: #1565c0;
+}
+
+
+.btn-modal-submit:disabled {
+  background-color: #cbd5e1;
+  color: #94a3b8;
+  cursor: not-allowed;
+}
