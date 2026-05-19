@@ -146,7 +146,7 @@ export default function Analytics({ user }) {
             <h2 className="analytics-ranking-title">
               Ranking de Produtividade
             </h2>
-            <button className="btn-historico">👁 Ver Histórico</button>
+            
           </div>
 
           <table className="analytics-table">

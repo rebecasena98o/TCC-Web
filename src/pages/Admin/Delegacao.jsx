@@ -170,20 +170,15 @@ function TransferModal({ ticket, onClose, onConfirm }) {
 }
 
 export default function Delegacao({ user }) {
-
   const navigate = useNavigate();
-
   const [tickets, setTickets] = useState(initialTickets);
-
   const [modalTicket, setModalTicket] = useState(null);
-
   const [feedback, setFeedback] = useState(null);
-
-  const [abaAtiva, setAbaAtiva] = useState('Delegação');
+  const abaAtiva = 'Delegação';
 
   function handleNavClick(aba) {
-    setAbaAtiva(aba);
     if (aba === 'Analytics') navigate('/admin/analytics');
+    if (aba === 'Delegação') navigate('/admin/delegacao');
     if (aba === 'Bibliotecários') navigate('/admin/bibliotecarios');
   }
 
@@ -197,7 +192,6 @@ export default function Delegacao({ user }) {
   }
 
   function confirmarTransferencia(id, novoResponsavel) {
-
     setTickets((prev) =>
       prev.map((t) =>
         t.id === id
@@ -211,7 +205,6 @@ export default function Delegacao({ user }) {
     );
 
     setModalTicket(null);
-
     setTimeout(() => setFeedback(null), 3500);
   }
 
@@ -226,19 +219,14 @@ export default function Delegacao({ user }) {
         className="delegacao-header"
         style={innerStyle}
       >
-
         <div className="delegacao-header-left">
-
           <h1 className="delegacao-header-title">
             Painel Administrativo - Unifor
           </h1>
-
           <p className="delegacao-header-sub">
             Bem-vinda,{' '}
-            {user?.email?.split('@')[0] ||
-              'Maria Licciardi de Lima'}
+            {user?.email?.split('@')[0] || 'Maria Licciardi de Lima'}
           </p>
-
         </div>
 
         <button
@@ -247,54 +235,41 @@ export default function Delegacao({ user }) {
         >
           Sair
         </button>
-
       </header>
 
       <div
         className="delegacao-top-bar"
         style={innerStyle}
       >
-
         <img
           src={logoUnifor}
           alt="Logo Unifor"
           className="delegacao-logo"
         />
-
         <span className="delegacao-top-title">
           Painel Administrativo
         </span>
-
       </div>
 
       <nav
         className="delegacao-nav"
         style={innerStyle}
       >
-
-        {['Analytics', 'Delegação', 'Bibliotecários'].map(
-          (aba) => (
-            <button
-              key={aba}
-              className={`nav-tab ${
-                abaAtiva === aba
-                  ? 'nav-tab-active'
-                  : ''
-              }`}
-              onClick={() => handleNavClick(aba)}
-            >
-              {aba === 'Analytics' && '📊 '}
-              {aba === 'Delegação' && '⇄ '}
-              {aba === 'Bibliotecários' && '👤 '}
-              {aba}
-            </button>
-          )
-        )}
-
+        {['Analytics', 'Delegação', 'Bibliotecários'].map((aba) => (
+          <button
+            key={aba}
+            className={`nav-tab ${abaAtiva === aba ? 'nav-tab-active' : ''}`}
+            onClick={() => handleNavClick(aba)}
+          >
+            {aba === 'Analytics' && '📊 '}
+            {aba === 'Delegação' && '⇄ '}
+            {aba === 'Bibliotecários' && '👤 '}
+            {aba}
+          </button>
+        ))}
       </nav>
 
       <main className="delegacao-main">
-
         {feedback && (
           <div className="delegacao-toast">
             ✓ {feedback}
@@ -302,13 +277,11 @@ export default function Delegacao({ user }) {
         )}
 
         <section className="delegacao-card">
-
           <h2 className="delegacao-card-title">
             Trabalhos e Atribuições
           </h2>
 
           <table className="delegacao-table">
-
             <thead>
               <tr>
                 <th>Aluno</th>
@@ -321,30 +294,18 @@ export default function Delegacao({ user }) {
             </thead>
 
             <tbody>
-
               {tickets.map((t) => (
                 <tr key={t.id}>
-
                   <td>{t.aluno}</td>
-
                   <td>{t.titulo}</td>
-
                   <td>{t.bibliotecario}</td>
-
                   <td>
-                    <span
-                      className={`status-badge-delegacao ${
-                        statusClass[t.status] ?? ''
-                      }`}
-                    >
+                    <span className={`status-badge-delegacao ${statusClass[t.status] ?? ''}`}>
                       {t.status}
                     </span>
                   </td>
-
                   <td>{t.data}</td>
-
                   <td>
-
                     <button
                       className="btn-transferir"
                       onClick={() => abrirModal(t)}
@@ -352,18 +313,12 @@ export default function Delegacao({ user }) {
                     >
                       ⇄ Transferir
                     </button>
-
                   </td>
-
                 </tr>
               ))}
-
             </tbody>
-
           </table>
-
         </section>
-
       </main>
 
       {modalTicket && (
@@ -373,7 +328,6 @@ export default function Delegacao({ user }) {
           onConfirm={confirmarTransferencia}
         />
       )}
-
     </div>
   );
 }
