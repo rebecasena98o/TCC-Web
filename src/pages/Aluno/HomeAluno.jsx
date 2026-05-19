@@ -6,13 +6,8 @@ import { useNavigate } from 'react-router-dom';
 
 const HomeAluno = ({ user, setUser }) => {
   const navigate = useNavigate();
-<<<<<<< frontend
   const [modalAberto, setModalAberto] = useState(false);
-  
-=======
-  
 
->>>>>>> main
   const handleCardClick = (tcc) => {
     navigate('/detalhes-tcc', { state: { tccSelecionado: tcc } });
   };
@@ -56,7 +51,6 @@ const HomeAluno = ({ user, setUser }) => {
     <div className="dashboard-wrapper">
       <Header user={user} setUser={setUser} />
       
-      
       <main className="content-container" style={{ paddingTop: '110px' }}>
         <div className="content-header">
           <div>
@@ -64,7 +58,6 @@ const HomeAluno = ({ user, setUser }) => {
             <p className="section-subtitle">Acompanhe o status das suas revisões</p>
           </div>
 
-          
           <button className="btn-novo-tcc" onClick={() => setModalAberto(true)}>
             <span>+</span> Novo TCC
           </button>
@@ -72,7 +65,6 @@ const HomeAluno = ({ user, setUser }) => {
 
         <div className="tcc-grid">
           {meusTccs.map(tcc => (
-           
             <div 
               key={tcc.id} 
               className="tcc-card" 

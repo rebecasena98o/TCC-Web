@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
 import './DropdownNotification.css';
 
-
 const DropdownNotification = ({ user, customIcon }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-  };
+  const toggleDropdown = () => setIsOpen(!isOpen);
 
-  
-  const isLibrarian = user?.email?.includes('admin') || user?.role === 'librarian';
+  const isLibrarian = user?.role === 'librarian' || user?.email?.includes('librarian');
+  const isAdmin = user?.role === 'admin' || user?.email?.includes('admin');
 
-  
   const notificacoesAluno = [
     {
       id: 1,
@@ -47,36 +43,53 @@ const DropdownNotification = ({ user, customIcon }) => {
     }
   ];
 
-  
-  const notificacoesAtuais = isLibrarian ? notificacoesBibliotecario : notificacoesAluno;
+  const notificacoesAdmin = [
+    {
+      id: 1,
+      titulo: "Novo Bibliotecário Cadastrado",
+      descricao: "Carlos Oliveira foi adicionado ao sistema.",
+      tipo: "ticket",
+      data: "Hoje, 09:00"
+    },
+    {
+      id: 2,
+      titulo: "TCC Aprovado",
+      descricao: "O TCC de Pedro Oliveira foi aprovado por Ana Paula Santos.",
+      tipo: "status",
+      data: "Hoje, 11:45"
+    }
+  ];
+
+  const notificacoesAtuais = isAdmin
+    ? notificacoesAdmin
+    : isLibrarian
+    ? notificacoesBibliotecario
+    : notificacoesAluno;
 
   return (
     <div className="notification-dropdown">
-      
       <button className={`bell-btn ${isOpen ? 'active' : ''}`} onClick={toggleDropdown}>
-      {customIcon ? (
-          <img src={customIcon} 
-          alt="Notificações" 
-          className="bell-img" 
-          style={{ width: '22px', height: '22px', objectFit: 'contain' }} 
+        {customIcon ? (
+          <img
+            src={customIcon}
+            alt="Notificações"
+            className="bell-img"
+            style={{ width: '22px', height: '22px', objectFit: 'contain' }}
           />
         ) : (
-      <span className="bell-icon">🔔</span>
-      )}
-      {notificacoesAtuais.length > 0 && (
-        <span className="drop-notification-badge">
-        {notificacoesAtuais.length}
-      </span>
-    )}
-    
+          <span className="bell-icon">🔔</span>
+        )}
+        {notificacoesAtuais.length > 0 && (
+          <span className="drop-notification-badge">{notificacoesAtuais.length}</span>
+        )}
       </button>
-      
+
       {isOpen && (
         <div className="notification-content">
           <div className="notification-header">
             <h4>Notificações</h4>
           </div>
-          
+
           <div className="notification-list">
             {notificacoesAtuais.length === 0 ? (
               <p className="empty-notifications">Nenhuma nova notificação.</p>
