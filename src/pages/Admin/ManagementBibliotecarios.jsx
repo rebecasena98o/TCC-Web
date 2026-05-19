@@ -75,7 +75,7 @@ export default function ManagementBibliotecarios({ user }) {
   const [bibliotecarios, setBibliotecarios] = useState(bibliotecariosIniciais);
   const [modalBibliotecario, setModalBibliotecario] = useState(undefined);
 
-  // Sincronização estática da aba ativa
+  
   const abaAtiva = 'Bibliotecários';
 
   function handleNavClick(aba) {
@@ -107,7 +107,7 @@ export default function ManagementBibliotecarios({ user }) {
 
   return (
     <div className="delegacao-page">
-      {/* Cabeçalho padrão unificado */}
+      
       <header className="delegacao-header" style={innerStyle}>
         <div className="delegacao-header-left">
           <h1 className="delegacao-header-title">Painel Administrativo - Unifor</h1>
@@ -123,7 +123,6 @@ export default function ManagementBibliotecarios({ user }) {
         <span className="delegacao-top-title">Painel Administrativo</span>
       </div>
 
-      {/* Barra de navegação incluída para manter consistência */}
       <nav className="delegacao-nav" style={innerStyle}>
         {['Analytics', 'Delegação', 'Bibliotecários'].map((aba) => (
           <button

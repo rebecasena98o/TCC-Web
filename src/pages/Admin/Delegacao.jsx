@@ -174,9 +174,6 @@ export default function Delegacao({ user }) {
   const [tickets, setTickets] = useState(initialTickets);
   const [modalTicket, setModalTicket] = useState(null);
   const [feedback, setFeedback] = useState(null);
-  
-  // ✅ CORREÇÃO SÊNIOR: Esta tela SEMPRE representará a aba 'Delegação'.
-  // Evita descompasso visual ao renderizar os dados da tabela.
   const abaAtiva = 'Delegação';
 
   function handleNavClick(aba) {
