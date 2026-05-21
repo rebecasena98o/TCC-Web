@@ -23,7 +23,7 @@ const Login = ({ setUser }) => {
     );
 
     if (!usuario) {
-      setErro('Credenciais incorretas.');
+      setErro('Credenciais incorretas');
       setTimeout(() => setErro(null), 3500);
       return;
     }
