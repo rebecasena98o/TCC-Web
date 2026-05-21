@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 const HomeAluno = ({ user, setUser }) => {
   const navigate = useNavigate();
   const [modalAberto, setModalAberto] = useState(false);
-  
+
   const handleCardClick = (tcc) => {
     navigate('/detalhes-tcc', { state: { tccSelecionado: tcc } });
   };
@@ -15,43 +15,52 @@ const HomeAluno = ({ user, setUser }) => {
   const [meusTccs, setMeusTccs] = useState([
     {
       id: 1,
-      titulo: "Análise de Sistemas de Informação na Gestão Empresarial",
-      status: "Ajustes Necessários",
+      titulo: 'Análise de Sistemas de Informação na Gestão Empresarial',
+      status: 'Ajustes Necessários',
       versao: 2,
-      data: "2026-04-28",
+      data: '2026-04-28',
       mensagens: 4,
-      statusClass: "status-alerta"
+      statusClass: 'status-alerta',
     },
     {
       id: 2,
-      titulo: "Impactos da Tecnologia na Educação Moderna",
-      status: "Em Correção",
+      titulo: 'Impactos da Tecnologia na Educação Moderna',
+      status: 'Em Correção',
       versao: 1,
-      data: "2026-04-28",
+      data: '2026-04-28',
       mensagens: 2,
-      statusClass: "status-progresso"
-    }
+      statusClass: 'status-progresso',
+    },
   ]);
 
-  const adicionarNovoTcc = (novoTitulo) => {
+  const adicionarNovoTcc = ({ tema, observacoes }) => {
     const novoTccObjeto = {
-      id: Date.now(), 
-      titulo: novoTitulo,
-      status: "Pendente",
+      id: Date.now(),
+      titulo: tema,
+      status: 'Pendente',
       versao: 1,
-      data: new Date().toISOString().split('T')[0], 
+      data: new Date().toISOString().split('T')[0],
       mensagens: 0,
-      statusClass: "status-pendente" 
+      statusClass: 'status-pendente',
     };
 
-    setMeusTccs([novoTccObjeto, ...meusTccs]);
+    setMeusTccs((prev) => [novoTccObjeto, ...prev]);
+    setModalAberto(false);
+
+    // Navega direto para os detalhes do ticket recém-criado.
+    // Se houver observação, ela chegará como primeira mensagem do chat.
+    navigate('/detalhes-tcc', {
+      state: {
+        tccSelecionado: novoTccObjeto,
+        observacaoInicial: observacoes || null,
+      },
+    });
   };
 
   return (
     <div className="dashboard-wrapper">
       <Header user={user} setUser={setUser} />
-      
-      
+
       <main className="content-container" style={{ paddingTop: '110px' }}>
         <div className="content-header">
           <div>
@@ -59,18 +68,16 @@ const HomeAluno = ({ user, setUser }) => {
             <p className="section-subtitle">Acompanhe o status das suas revisões</p>
           </div>
 
-          
           <button className="btn-novo-tcc" onClick={() => setModalAberto(true)}>
             <span>+</span> Novo TCC
           </button>
         </div>
 
         <div className="tcc-grid">
-          {meusTccs.map(tcc => (
-           
-            <div 
-              key={tcc.id} 
-              className="tcc-card" 
+          {meusTccs.map((tcc) => (
+            <div
+              key={tcc.id}
+              className="tcc-card"
               onClick={() => handleCardClick(tcc)}
               style={{ cursor: 'pointer' }}
             >
@@ -78,9 +85,9 @@ const HomeAluno = ({ user, setUser }) => {
                 <i className="icon-doc">📄</i>
                 <span className={`badge ${tcc.statusClass}`}>{tcc.status}</span>
               </div>
-              
+
               <h3 className="tcc-title">{tcc.titulo}</h3>
-              
+
               <div className="card-footer">
                 <div className="footer-info">
                   <span>Versão {tcc.versao}</span>
@@ -95,10 +102,10 @@ const HomeAluno = ({ user, setUser }) => {
         </div>
       </main>
 
-      <NovoTicketModal 
-        isOpen={modalAberto} 
-        onClose={() => setModalAberto(false)} 
-        user={user} 
+      <NovoTicketModal
+        isOpen={modalAberto}
+        onClose={() => setModalAberto(false)}
+        user={user}
         onAddTicket={adicionarNovoTcc}
       />
     </div>
