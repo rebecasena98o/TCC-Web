@@ -1,53 +1,61 @@
-# 📚 Unifor TCC Connect  
-### Sistema de Gestão de Revisões Normativas
+# 📚 Unifor TCC Connect
 
-O **Unifor TCC Connect** é uma plataforma web desenvolvida como atividade extensionista da disciplina de Desenvolvimento de Plataformas Web. Seu objetivo é centralizar e otimizar a comunicação entre alunos e bibliotecários da Universidade de Fortaleza (Unifor) no processo de revisão técnica e normativa de Trabalhos de Conclusão de Curso (TCCs).
+## Sistema de Gestão de Revisões Normativas
 
----
+O Unifor TCC Connect é uma plataforma web desenvolvida como atividade extensionista da disciplina de Desenvolvimento de Plataformas Web. Seu objetivo é centralizar e otimizar a comunicação entre alunos e bibliotecários da Universidade de Fortaleza (Unifor) durante o processo de revisão técnica e normativa dos Trabalhos de Conclusão de Curso (TCCs).
 
-## 🎯 O Problema
+## 🎯 Problema
 
-Atualmente, a comunicação ocorre de forma fragmentada (e-mail, mensagens e atendimentos presenciais), gerando:
+Atualmente, a comunicação entre alunos e bibliotecários ocorre de forma descentralizada, utilizando e-mails, mensagens e atendimentos presenciais, o que pode gerar:
 
-- **Atrasos:** dificuldade em acompanhar o fluxo de correções  
-- **Perda de informação:** arquivos e feedbacks dispersos  
-- **Sobrecarga:** dificuldade na organização das demandas  
+* Dificuldade no acompanhamento das correções;
+* Perda ou dispersão de arquivos e feedbacks;
+* Maior tempo para organização e acompanhamento das demandas.
 
----
+## 🚀 Solução Proposta
 
-## 🚀 Nossa Solução
+O sistema centraliza todo o fluxo de revisão em uma única plataforma, permitindo:
 
-Uma aplicação web que centraliza todo o fluxo:
-
-- 📄 Upload de TCCs em PDF  
-- 💬 Feedback centralizado  
-- 📊 Painel administrativo com controle de status  
-
----
+* Envio de TCCs em formato PDF;
+* Acompanhamento do status da revisão;
+* Registro de feedbacks e observações;
+* Comunicação centralizada entre alunos e bibliotecários;
+* Controle administrativo dos processos;
+* Apoio à análise documental utilizando Inteligência Artificial.
 
 ## 🛠️ Tecnologias Utilizadas
 
-- **Frontend:** React.js ou Next.js  
-- **Backend:** Node.js com Express  
-- **Banco de Dados:** PostgreSQL ou MongoDB  
-- **Armazenamento:** Firebase Storage ou AWS S3  
+### Backend
 
----
+* Node.js
+* Express.js
+* Prisma ORM
+* JWT Authentication
+
+### Banco de Dados
+
+* Banco de dados relacional integrado ao Prisma ORM
+
+### Inteligência Artificial
+
+* Google Gemini API
+
+### Upload de Arquivos
+
+* Multer
+* Armazenamento local de documentos PDF
 
 ## ⚙️ Como Executar o Projeto
 
-### 🔧 Pré-requisitos
+### Pré-requisitos
 
-Antes de começar, você precisa ter instalado em sua máquina:
+* Node.js
+* Git
+* npm
 
-- [Node.js](https://nodejs.org/)
-- [Git](https://git-scm.com/)
-- Gerenciador de pacotes (**npm** ou **yarn**)
-
----
-
-### 📥 Clonando o repositório
+### Clonando o Repositório
 
 ```bash
 git clone https://github.com/seu-usuario/unifor-tcc-connect.git
 cd unifor-tcc-connect
+```
